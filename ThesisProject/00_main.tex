@@ -1,0 +1,162 @@
+\documentclass[phd,project]{ppgccufmg}    % ou [msc] para dissertações
+                                  % de mestrado. Para propostas ou
+                                  % projetos, usar [phd,project],
+                                  % [msc,proposal], etc.
+
+%\usepackage[brazil]{babel}        % se o documento for em português, OU
+\usepackage[english]{babel}      % se o documento for em inglês
+%\usepackage[latin1]{inputenc}
+\usepackage{xcolor,colortbl}%johnatan configuração da tabela 
+%\usepackage[caption=false]{subfig}
+\usepackage{subfloat}
+%\usepackage{subfigure}
+\usepackage{rotating}%johnatan
+\usepackage{comment}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{multirow}
+
+\usepackage{subfigure}
+
+%####### Simbolo de checked######################
+\usepackage{bbding}
+\usepackage{amssymb}
+\usepackage{pifont}
+\newcommand{\xmark}{\ding{55}}%
+%###############################
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{type1ec}
+\usepackage{graphicx}
+\usepackage[a4paper,
+  portuguese,
+  bookmarks=true,
+  bookmarksnumbered=true,
+  linktocpage,
+  colorlinks,
+  citecolor=black,
+  urlcolor=black,
+  linkcolor=black,
+  filecolor=black,
+  ]{hyperref}
+\usepackage[square]{natbib}
+
+
+%table justify 
+\usepackage{booktabs,tabularx}
+\usepackage{xr}
+%##########
+
+\usepackage{bibentry}
+
+\nobibliography*
+
+\begin{document}
+
+% O comando a seguir, \ppgccufmg, provê todas as informações relevantes para a
+% classe ppgccufmg. Por favor, consulte a documentação para a descrição de
+% cada chave. 
+% TITULO :   title={Recommendation System of Partial designer  of Information Systems} Software Reuse Opportunities Identification System
+% Um exemplo para documentos em português é apresentado a seguir:
+
+\ppgccufmg{
+  title={A Framework for Gamification of Project-based Software Engineering Education},
+  authorrev={Souza, Maurício Ronny de Almeida},
+  cutter={O48m},
+  cdu={519.6*32 (043)},
+  university={Universidade Federal de Minas Gerais},
+  course={Ciência da Computação},
+  address={Belo Horizonte},
+  date={2018-06},
+  keywords={software engineering education, gamification, project-based learning},
+  advisor={Eduardo Magno Lages Figueiredo},
+  approval={img/folhaAprovacao.pdf},
+%  approval=[-2.5cm][1]{aprovalsheet},
+% abstract={Resumo}{resumo},
+  abstract=[english]{Abstract}{abstract},
+ % abstract={Resumo Estendido}{resumoest},
+  %dedication={dedicatoria},
+  ack={agradecimentos},
+  %ack=[Acknowledgments]{ack},
+  epigraphtext={Remember the dead, but fight for the living}{Jéssica Summerisle},
+  indexkeys={1.~Computação --Teses. 2.~Software- Reutilização. 3.~Software -- Desenvolvimento. 4.~Sistemas de recomendação
+ I.~Orientador. II.~Título.},
+}
+
+
+
+
+
+\input{1.Introduction.tex}
+\input{2.Background.tex}
+\input{3.SMS}
+\input{4.GamificationExperiment.tex}
+\input{5.ActionResearch.tex}
+\input{6.Framework.tex}
+\input{7.Conclusion.tex}
+
+%\input{01_Introduction}
+%\input{2.0_Background}
+%\input{5.0_Survey}
+%\input{6.0_Conclusion}
+
+
+
+% Aqui vem a parte da bibliografia: use o comando \ppgccbibliography indicando
+% apenas o nome do arquivo .bib (sem a extensão).
+\ppgccbibliography{referencias}
+
+
+% Este comando encapsula o conjunto de apêndices. A sua função é fazer com que
+% a numeração dos apêndices seja feita com letras maiúsculas (A, B, C, etc.) e
+% a palavra "Apêndice" anteceda as entradas no Sumário.
+\begin{appendices}
+\input{a1.survey.tex}
+\input{a.PrimaryStudies.tex}
+% Para cada apêndice, um \chapter
+%\chapter{Um apêndice}
+
+%\dummytxta
+%\dummytxtb
+%\dummytxtc
+%\dummytxta
+%\dummytxtb
+
+%\chapter{Outro apêndice}
+
+%\dummytxta
+%\dummytxtb
+%\dummytxtc
+%\dummytxta
+%\dummytxtb
+
+% Fim dos apêndices (usar apenas depois do último apêndice)
+\end{appendices}
+
+
+% Este comando encapsula o conjunto de anexos. A sua função é fazer com que a
+% numeração dos anexos seja feita com letras maiúsculas (A, B, C, etc.) e a
+% palavra "Anexo" anteceda as entradas no Sumário.
+\begin{attachments}
+
+% Para cada anexo, um \chapter
+%\chapter{Um anexo}
+
+%\dummytxta
+%\dummytxtb
+%\dummytxtc
+%\dummytxta
+%\dummytxtb
+
+%\chapter{Outro anexo}
+
+%\dummytxta
+%\dummytxtb
+
+% Fim dos anexos (usar apenas depois do último anexo)
+\end{attachments}
+
+
+\end{document}

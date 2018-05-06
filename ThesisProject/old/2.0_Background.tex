@@ -1,0 +1,92 @@
+\chapter{Background and Related Work}
+\label{ch:background}
+
+In order to speed up software development with quality and low cost, we can apply software reuse techniques. Such techniques consist of using existing software artifacts in the development of new systems, with minimization of efforts. Even in an \textit{ad hoc} approach, the reuse of source code fragments is a recurrent activity in development settings~\citep{Ajila:2012,Wang:2012,Xue:2011}. However, by reusing code fragments in many parts of the system, developers may cause code clones~\citep{fowler2009refactoring,marcus2001identification,Patil:2015}. To support reuse, methods and supporting tools for identification of reuse opportunities are required.
+
+ This chapter presents background information and work related to this dissertation. Section~\ref{sec:recommendationSystem} presents an overview on recommendation systems because our method  is based on recommendation system principles. Section~\ref{sec:backReuse} presents the concepts about software reuse and discusses the  advantages and drawbacks of each type of reuse. Section~\ref{sec:analysisSimilarity} shows some examples of the use of similarity analysis to identify opportunities of  reuse and code clone. Section~\ref{sec:reuseOpportunities} presents previous work in the area of identification of reuse opportunities from  source code. Lastly, Section~\ref{ch3:finalRemarks} concludes this chapter with some final remarks.
+
+
+\section{Recommendation Systems in Software Engineering}
+\label{sec:recommendationSystem}
+
+Along the years, the availability of data regarding software systems has been increasing in terms of volume and complexity~\citep{Herlocker:2004}. In the context, Recommendation Systems for Software Engineering (RSSEs) are tools to support developers in many tasks, such as decision-making with respect to the data and recommendation of reuse opportunities~\citep{Cubranic}. These tools aim to analyze the developers' needs and preferences, indicated implicitly or explicitly through the tool, and then to recommend artifacts to the developer~\citep{Robillard:2010}. Such artifacts may be source code fragments, for instance~\citep{Holmes}.
+
+In general, software developers spend significant efforts to find software artifacts in source code repositories~\citep{Begel}. For example, considering large-sized systems, it may be difficult for developers to find software components to reuse~\citep{Ko:2006:ESD}. Therefore, to extract reuse opportunities is a task that impacts negatively on the productivity of developers~\citep{Begel}. In this context, a RSSE may support developers in the process for identification of reuse opportunity by recommending source code in an automatic fashion~\citep{Holmes}. Some examples of studies that propose RSSEs for reuse opportunities are CodeBroker~\citep{Ye:2005} and Strathcona~\citep{Holmes}. CodeBroker aims to identify similar class library elements using a text-based analysis, to support developers in the used of APIs. Strathcona is a Recommendation system  to assist developers in finding fragments of code, or examples, of an API's use.
+
+\section{Software Reuse}
+\label{sec:backReuse}
+
+In software reuse, previously implemented software components are used to support the development of new software~\citep{krueger1992software}. The main goal of reuse is the improvement of software quality aspects followed by an increasing development efficiency with low cost~\citep{ravichandran2003software}. There are many approaches to support reuse in software development. \cite{krueger1992software} presents an extensive study regarding definitions and application of software reuse.
+
+There are two types of software reuse: \textit{ad hoc} and systematic reuse~\citep{mohagheghi2007quality}. \textit{Ad hoc}, reuse is applied in an opportunistic way, without planning, taking as an example the reuse of random software code snippets from the  Web~\citep{sojer2011license}. In turn, systematic software reuse follows specific protocols and processes to provide the use of existing software components when developing new systems~\citep{mohagheghi2007quality}.
+
+\cite{wang2005survey} conducted a study regarding the identification of business domain components to support reuse. According to their work, there are two types of component identification: forward  and reverse. In forward identification, reuse is planned before the development of software systems. On the other hand, in reverse identification, reuse opportunities are identified from a set of existing software systems. 
+
+Some studies investigated advantages and drawbacks of systematic software reuse~\citep{mohagheghi2007quality,mohagheghi2004empirical}. \cite{mohagheghi2004empirical} studied the impacts of reuse on software quality through an empirical study on large-scale system components. They concluded that reuse provides software components with lower defect-density and higher stability when compared with non-reused components. \cite{mohagheghi2007quality} conducted a literature review to investigate the impact of software reuse in industrial development context. They identified flaw decreasing, reduction of development efforts, and increasing of productivity as the main advantages of reuse.
+
+%Systematic software reuse is supported by reuse opportunities, also known as reuse libraries, that are collections of components to be used in the development of new software systems~\citep{guo2000survey}. The identification of reuse opportunities  from existing software systems may be supported by automated tools~\citep{frakes1996software}.~\citep{rothenberger:2003}
+
+Many strategies are proposed in literature, based on techniques such as: natural-language processing, formal specifications, architecture  style, and  machine learning. In natural language processing, lexical inspection of source code elements is conducted to identify reuse opportunities~\citep{maarek1991information}. In formal specifications, the reusable components are extracted with support of software models and metrics analysis~\citep{caldiera1991identifying}. In architectural style~\citep{monroe1996style}, where software reuse is supported by the analysis of interacting components in a high-level abstraction, such as software design and modeling,  different analyzes are conducted to extract reuse opportunities, such as automated semantic categorization of software components~\citep{Kawaguchi2004}.
+
+
+\section{Analysis of Similarity}
+\label{sec:analysisSimilarity}
+
+Some studies proposed and discussed in literature~\citep{Kukich:1992,Navarro:2001,Fluri:2007} investigating the analysis of similarity and their applications. For example, the analysis of similarity utilized in this dissertation is Levenshtein Distance.  The Levenshtein Distance denotes the minimum number of operations needed to transform one string into the other~\citep{levenshtein1966}. The operations are: (i) insert a character, (ii) delete a character, or (iii) substitute a character. Algorithm is based on the problem of the longest common subsequence~\citep{levenshtein1966}. A larger distance means that the strings are less similar, that is, that more operations are necessary to transform one string into another, whereas a distance of 0 operations denotes that the strings are equal~\citep{Fluri:2007}. The runtime-complexity is $O(n.m)$, where $n$ is the
+number of characters in $string_a$ and $m$ in $string_b$.
+
+Many studies have applied similarity analysis in the identification of reuse opportunities and code clone detection~\citep{li2016mining,marcus2001identification,roy2008nicad,selim2010enhancing,yuan2012boreas}. As an example, \cite{li2016mining} present a study that applies similarity analysis techniques to support the identification of reuse opportunities. They present a method for identification of similar implementations of Android mobile application. The proposed method aims to provide the identification of families of applications. For this purpose, they compute a similarity function based on the number of similar methods and the total number of methods in two different systems under comparison. 
+
+
+
+\cite{li2006cp} propose a tool called CP-Miner for code clone detection. CP-Miner relies on data mining techniques and targets on copy-paste occurrences of code clone. The method parses source code to compute hash values for sentences. After, the tool analyzes source code to find frequent subsequence that may present clones, using a mining algorithm.
+%Levenshtein Distance  is the most promising one to compare strings by various edit operations, usually including the deletion, insertion, and substitution of individual symbols. ~\citep{Fluri:2007}. The operations performed by algorithm is often called the “edit distance” and can be defined as the minimum cost of transforming one string into another through a sequence of weighted edit operations~\citep{yujian2007}.
+
+
+
+
+\begin{comment}
+Many studies have applied similarity analysis in the identification of reuse opportunities and code clone detection~\citep{li2016mining,li2004cp,marcus2001identification,roy2008nicad,selim2010enhancing,yuan2012boreas}. As an example, \cite{li2016mining} presents a study that applies similarity analysis techniques to support the extraction of reuse opportunities. \cite{li2016mining} present a method for identification of similar implementations of Android mobile application. The proposed method aims to provide the identification of families of applications. For this purpose, they compute a similarity function based on the number of similar methods and the total number of methods in two different systems under comparison. 
+
+
+\cite{li2004cp} propose a tool called CP-Miner for code clone detection. CP-Miner relies on data mining techniques, and targets on copy-paste occurrences of code clone. The method parses source code to compute hash values for sentences. After, the tools analyzes source code to find frequent subsequence that may present clones, using a mining algorithm.
+
+\cite{marcus2001identification} present a method for detection of code clones focused on structural analysis. The method is text-based and relies on the identification of similar code in high-level concept. An information retrieval technique is applied by the method. The method also computes the Cosine similarity function to compute semantic similarity between different code fragments. \cite{roy2008nicad} present a text-based method for detection of syntactic clones. This method compares pairs of code fragments line-by-line to compute matches using a size-sensitive approach. For this purpose, the method applied the Longest Common Subsequence (LCS) algorithm. 
+
+\cite{selim2010enhancing} present a hybrid method for code clone detection in two steps: (i) generation of intermediate representation of the code for clone detection and (ii) analysis of the original code based on the detection results of the previous step. This method used a similarity function based on the total number of code lines that match between clones and the total number of code lines of the clones. Finally, \cite{yuan2012boreas} propose a token-based method to support code clone detection. This method counts variables in the source code of a given system and builds a counting matrix. The proposed approach combines two different similarity computations to identify similar code fragments: the Cosine similarity function and a proportional similarity function. 
+\end{comment}
+
+
+
+\section{Related Work}
+\label{sec:reuseOpportunities}
+
+%In the literature, several work propose different methods and tools to extract reuse opportunities. For instance, CodeBroker~\citep{Ye:2005} aims to foster software reuse by actively recommending methods that are suitable in a context. While developers worked on their source code, CodeBroker provide  coding suggestions on the basis of information garnered from similar components in the repository. ~\cite{Ye:2005}, identified two distinct ways of access information from the repository. Fist the classic pull, in which a user  searches for information. Second, the proactive approach, the tool monitors the user’s activities and offers information is considered useful in a specific context.
+
+%Dhruv~\citep{Ankolekar:2006}
+%Hipikat~\citep{Cubranic}
+%Mylyn~\citep{Kersten:2006}
+%RASCAL~\citep{Sen:2010}
+%Strathcon~\citep{Holmes}
+
+Previous work investigates the identification of reuse opportunities from software systems~\citep{inoue2005ranking,koziolek2013experiences,li2005grid,mende2009evaluation,michail1999assessing,oliveira2007automatic,Ye:2005}. \cite{inoue2005ranking} propose a graph-based technique to support the extraction of frequently used components in a given software component repository. The proposed technique relies on ranking components based on their usage by other components from the repository. The authors also present a supporting tool called SPARS-J, for analysis of Java classes. 
+
+\cite{koziolek2013experiences} present a technique for identification of reuse opportunities based on domain analysis. The proposed technique aims to support the assessment of potential SPL by organizations. This technique encompasses feature modeling of the domain, comparison of systems in architectural level, and the extraction of reusable components. \cite{li2005grid} present an approach for identification of reusable components from legacy systems. The proposed approach aims to support reengineering tasks; that is, the implementation of new systems based on existing source code. For this purpose, the authors propose the generation of the Abstract Syntax Tree (AST) for analysis and extraction of modules and components as candidate for reuse. Therefore, we may consider this approach as a recommendation system.
+
+\cite{mende2009evaluation} propose a tool to support software evolution and maintenance by identifying similar methods along the source code and recommend merging of these methods to the developer. The proposed tool may be considered as a recommendation system. This tool computes code clones in method-level and uses the Levenshtein’ distance for textual comparison of methods. \cite{michail1999assessing} propose a tool, CodeWeb, to support the comparison of software libraries in terms of components (i.e., classes and methods) provided by these libraries. For this purpose, the tool performs naming similarity computations to identify similar classes and methods from a set of libraries. We consider the proposed tool as a recommendation system, since it provides the identification of the appropriate libraries for reuse. 
+
+\cite{oliveira2007automatic} propose a method and a supporting tool for recommendation of reusable software components. The proposed tool applies a technique for software reuse and identification of candidates for reuse called Automatic Identification of Software Components (AISC). The tool, called Digital Assets Discoverer, performs static analysis of code to identify reuse opportunities. The tool also provides an interactive graphic interface and exports feature using a metadata representation model. 
+
+\cite{Ye:2005} present a supporting tool called CodeBroker to support runtime identification of reusable software components.  The proposed tool relies on information retrieval techniques for identification of reuse candidates. Since the tool executes in runtime, it provides recommendation of source code components in production environment. For this purpose, CodeBroker is based on search engines and Javadoc artifacts for code analysis.
+
+In turn, our reuse opportunities identification  method and supporting tool aim to identify candidates for reuse in software systems from an specific domain, using lexical analysis. Unlike other approaches presented, our method can be used for two purposes. First, provide support to identify reuse opportunities in software. Second, guide users through partial design in developing new software systems, showing the most frequent entities. Our method also ranks software  entities  identified as  reuse opportunities by frequency in which the appear in different systems from the same domain. We expect this approach to be helpful in reuse recommendation by suggesting methods and classes that are the most used in software systems given a specific domain.
+
+
+
+\section{Final Remarks}
+\label{ch3:finalRemarks}
+
+This chapter provided the background information necessary to fully understand the approach
+proposed in this dissertation. It discussed the concepts of recommendation systems, software reuse, and techniques for identify reuse opportunities. These concepts are essentials since our approach is a recommendation system that aims to achieve a better software design by recommending reuse opportunities. 
+
+In the next chapter, we detail our method for identifying reuse opportunities from source code. The method called JReuse is divided in two steps. First, JReuse analyzes all classes of a domain. Second, JReuse analyzes all methods from classes identified in the previous step. Then, the method provides a list of  entities identified as reuse opportunities of the domain analyzed.

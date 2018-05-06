@@ -1,0 +1,451 @@
+\chapter{The experience of using Project-based Learning in Software Engineering Education}
+\label{ch:actionResearch}
+
+This chapter describes the experience of adopting Project-based Learning (PBL) in an introductory software engineering course at Federal University of Minas Gerais (UFLA). The goal was to introduce a practical approach to allow students to experience software development process. However, there were many challenges observed in setting up and conducting the course with this learning method. Therefore, the goal of this study is to summarize the lessons learned from the adoption of PBL in software engineering education, in terms of challenges observed and the perceptions of the students regarding the course. To achieve this goal, an Action Research study was carried in four academic periods of the Software Engineering course offered in the curriculum of the undergaduate program in Information Systems at UFLA.
+
+The remainder of this chapter is organized as follows.
+
+\section{Study settings}
+
+This section explains how we planned and executed this study. Section III-A presents the goal and research questions of this study. Section III-B discusses the research strategy to answer the research question. Section III-C describes the process and result of the primary studies selection. 
+
+\subsection{Study Goals and Research Questions}
+
+The goal of this study is to understand the challenges and lessons learned from the use of Project-based learning in Software Engineering Education. To achieve this goal, we propose the following Research Questions (RQ):
+
+\textbf{RQ1.} What are the challenges of using PBL in an introductory software engineering course?
+
+\textbf{RQ2.} What is the perception of students on the use of PBL in an introductory software engineering course?
+
+\subsection{Research method}
+
+To answer the research questions, we conducted an Action-Research study in an introductory Software Engineering course with the purpose of incrementally refining a PBL approach to introduce a practice-oriented learning method.
+
+Action Research is a research approach that advocates the intervention in a problem, the proposal of solutions and their application, for purpose of solving the problem and creating theory regarding the action (Coughlan and Coughlan, 2012). In Action Research, the researchers attempt to solve a real-world problem while simultaneously studying the experience of solving the problem (Davison et al., 2004). While most empirical research methods have researchers attempting to observe the world as it currently exists, in Action Research, the researchers aim to intervene in the studied situations for the explicit purpose of improving the situation (Easterbrook, 2008). 
+
+According to Easterbrook (2008), Action Research has been pioneered in fields such as education, where major changes in educational strategies cannot be studied without implementing them, and where implementation implies a long-term commitment, because the effects may take years to emerge. Similarly, Santos and Travassos (2009) suggest that this method seems to be a useful research methodology when considering the social challenges involved in SE research, and the long history of success in similar domains, in terms of research practice and challenges, such as education and nursing.
+
+\subsection{Study design}
+
+In Action Research, activities are organized in a structured cyclic process, called “Action Research Cycle”.  This process usually includes the following activities: “Diagnosis”, “Planning”, “Intervention”, “Evaluation”, and “Reflection and Learning” (Davison et al., 2004). Figure 1 presents the Action Research Cycle adopted in this study. 
+
+Figure 1. Action Research cycle, adapted from Davison et al. (2004)
+
+The study was carried in four iterations of an introductory Software Engineering course, from 2016 to 2017. Each course is considered an iteration of the Action Research cycle. In each cycle, we executed the following activities in each phase:
+
+\textbf{Diagnosis and Planning Phase:} Prioritization of problems to address in the current cycle and definition of actions to be taken. This phase was executed before the beginning of each course, defining a Course Plan describing how the actions would be translated to teaching strategy;
+
+\textbf{Intervention Phase:} Execution of the Course Plan and data collection. During this phase, we assigned, monitored, and assessed Practical Projects.
+
+\textbf{Evaluation Phase:} Evaluation of the course outcomes, from the perspective of students and instructors. In this phase, we analyzed the data collected during the course.
+
+\textbf{Reflection and Learning Phase:} Identification and documentation of lessons learned. During this phase, we reflect on the outcomes of the cycle, identifying positive outcomes from the actions taken in the current cycle, and possible issues to be addressed in following iterations.
+
+\subsection{The introductory software engineering course at UFLA}
+
+The Software Engineering course (“SE course”, henceforth) is a 60 hours introductory course offered every semester at Federal University of Lavras, included in the curriculum of the Information System Bachelor undergraduate program. The SE course aims to introduce students to the concepts and methods required for the development of large software intensive systems. The prerequisite for taking this course is the approval in the Object-oriented Programming course.
+
+This Software Engineering course is mainly based on two textbooks: Software Engineering by Sommerville [14] and The UML User Guide by Booch, Rumbaugh, Jacobson [15]. The course syllabus includes: software development process, agile methods, software requirements analysis and specification, software design, system implementation and testing, configuration management, and software quality.
+
+\section{PBL in the SE course}
+
+This section reports the execution of the Action-Research. For this study, we considered four iterations of the SE course. In the following subsections, we describe how Project-based Learning was adapted in each semester. Table I presents the four iterations, identified by an id (class), the number of students, the type of project used and the distribution of teams, and the data collection strategy (evaluation instruments)  
+
+TABLE I. SAMPLES
+
+In the evaluation phase of each Action-Research cycle, we briefly discuss the results of the questionnaires. The complete analysis of this evaluation instrument is presented in Section IV.
+
+\subsection{Class 2016.1}
+
+In the Planning Phase of the first iteration of this study, we defined the following problem: “How to introduce Practical Software Projects in an introductory SE course, to provide students with practice?”
+
+Initially, we planned the use of a real project with real clients. The selected project was a Web system to manage the allocation of rooms for classes at UFLA and their keys. The clients were employees at DADP (Pedagogical Support and Development Office), the sector responsible for the reservation of physical spaces and for providing resources (e.g.: datashow) and keys to access the requested rooms.
+
+Thirteen students enrolled in the course. Given the small number of students in the course, we opted to allow all students to work together in a single project. The class was planned having an evenly distribution of lectures in the classroom and in the laboratory. However, the theory would always be provided in accordance to the evolution of the software project, and using the project as a driving problem to motivate learning.
+
+To achieve the learning goals of the course, in the execution of their project, the students would have to:
+
+-	Elicit the customer requirements
+
+-	Describe the system requirements as functional and non-functional requirements
+
+-	Analyze the software behavior using appropriate notations (e.g.: use case scenarios)
+
+-	Discuss and plan the software design
+
+-	Select appropriate technology to develop the software
+
+-	Construct the software in accordance with specifications
+
+-	Test the software
+
+-	Manage software development using appropriate project management tools
+
+-	Use appropriate tools to manage software configuration
+
+-	Use agile methods
+
+The project corresponded to 55% of the course grade, divided in individual (15%) and team (40%) evaluation. Additionally, there would be a written exam (25%) and activities in class (20%) for individual assessment.
+During the course (Intervention Phase), students organized themselves in sub teams: a requirement team, a development team, and a test team. The first classes were devoted to introducing Software Engineering, Software Process and agile methods. The students were instructed about the project they were going to develop, and how they would adapt the Scrum framework to organize their development iterations. The project was organized in three iterations. In each iteration there was a class devoted students presentation of what they did in the iteration (similar to a Sprint Review event) and to plan the goals of the next iteration (similar to a Sprint Planning event).
+
+In the first project iteration, students met with the customer and collected his needs in an interview, supported by the professor. Then, students detailed the requirements, designed use cases diagrams and documented use cases scenarios, and created user interface prototypes. Finally, they arranged a second meeting with the customer for validating and prioritizing the requirements, or negotiating possible changes.
+
+In the second iteration, students investigated and discussed possible technologies (languages, frameworks, database systems) they could use to implement the software. Students presented seminars in classroom to disseminate their findings and they collaboratively selected XXXXXXXXXX. Then they discussed the software design and devoted the rest of the second and third iterations to developing and testing the software.
+Regarding the use of management tools, the students had to identify and apply a project management tool in their project. They used “Asana” to plan and monitor their activities. Similarly, students had to use Git and GitHub for controlling the evolution of their software.
+
+To support student activities, the professor conducted classroom activities, mentoring students. For instance, a class was devoted to explaining the purpose and how to develop user cases diagrams and scenarios, using the project as a case. The goal was to use classroom time to support students in developing work products they could use in their projects. In these activities, students were individually evaluated to ensure that, even if they organize themselves as sub teams for the execution of the project, each of them would still experience the hands-on practice. These exercises corresponded to 20% of the total grade.
+
+The end of each iteration resulted in a seminar where students presented the results of that cycle, and planned the next, following the structure of the scrum events “Sprint Review”, “Sprint Retrospective”, and “Sprint planning”, respectively. The final release would be presented to the customer, however (i) the responsibility of handling the keys and resources for the physical spaces was relocated from the original customer to another department at UFLA, and (ii) the customer was not available for attending the class. It frustrated  the students expectations. 
+
+Finally, a final written exam was composed of questions about theory contextualized in the case of the project they developed, to evaluate the students understanding about the concepts covered in the course.
+In the Evaluation Phase, we observed that the project was satisfactory. The students were able to develop a functional application in accordance to the customer needs, while practicing the software development life cycle. However, there were some shortcomings in the overall result:
+
+-	Following the open-ended nature of the canonical PBL approach, the project was loosely structured. Therefore, the evaluation of students was subjective, focusing on the correctness of the work products they developed, and the individual contribution observed in classroom. 
+
+-	The lack of clear evaluation criteria made the students confuse about how they would be evaluated. 
+
+-	The version control tool (Git and GitHub) was underused. Only one student used the tool, as he was responsible for integrating the source code provided by his teammates locally. Therefore, the course failed to showcase version control software as a collaboration tool.
+
+-	Big team: The large size of the group encouraged students to create sub teams. It created communication problems between the sub teams, and it lead to problems in work products consistency. Additionally, the distribution of effort was unbalanced, as some students worked more than others, and it was difficult for the professor to objectively assess the individual participation of students. Finally, there was the risk of not having students experiencing all stages of the project execution.
+
+-	Real Customer: The use of a real project, with a real customer, motivated students. However, the customer was not always available. In the middle of the project, the responsibility over keys and resources for classroom was moved from the original customer to another department ant the institution. Therefore, the use of real clients can be risky, because it introduces variables that are out of the instructors control.
+
+-	Lack of instruments to collect student feedback.
+
+\subsection{Class 2016.2}
+
+In the Planning Phase of the this Action Research cycle, the following changes were introduced:
+Type of project: We decided to allow students to choose their own projects. Therefore, instead of having an requirement elicitation activity with a customer, the students were required to create a “Product Vision” document, providing an overview of the scope of the project (objective, main features, and restrictions). 
+
+\textbf{Team size:} given the number of students enrolled, we limited the size of teams to 5 students, to avoid the problems related to the size of the team observed in the previous semester.
+
+\textbf{Clear objectives and evaluation criteria:} We defined a list of work products the students were expected to produce, and a checklist of attributes we would use to evaluate those work products. This decision was made to provide clear evaluation criteria both for instructors and for students.
+
+\textbf{Use of Git:} we specified the task of documenting releases using Git (using “Tag” feature), and we assigned an activity for students to create a tutorial video for Git. This assignment took the form of a contest, with the best video being awarded with 5% extra grade.
+
+\textbf{Course evaluation questionnaire:} A questionnaire was planned to collect data on the students perception of the course.
+
+Table II. X
+
+During the course (Intervention Phase), students followed a similar development cycle from the previous semester, with three development iterations similar to Scrum Sprints. They formed five teams. Given the change in the type of project, the first project iteration was devoted to negotiating the scope of student’s projects. The list of projects they chose to implement is described in Table X. However, this negotiation consumed considerable time, because each team had to reach consensus on what they wanted to do, and the professor had to approve that scope, considering a minimum complexity expected. For instance, Team B initially wanted to develop a simple website. The instructors had to intervene and assist them in choosing relevant features to transform the project in a Web application with more opportunity to apply software engineering concepts. 
+
+Table III. Students Projects for class 2016.2
+
+In the second project iteration, team C decided to change their project scope to an entirely different application. Therefore, they had a substantial effort recreating the Product Vision, Requirements, and Project Plan documentation. The change was done because one of the team members quit the course, and this particular student was leading the project, and the other students had little knowledge on the original business domain. 
+
+The classroom activities were difficult to manage, because of the multiple projects. The goal of these activities were to provide mentoring for students to apply the concepts learned in lectures in their projects, and to promote discussion and share of knowledge. Consequently, students had difficulty in sharing lessons with other teams and discussing about the techniques they had to apply in their projects abstracting different project scopes. For the instructors, it was also difficult to provide meaningful examples because it was required to cover all students’ projects.
+
+To support the use of Git, we assigned an activity for students to create a video tutorial for the tool. The best video would be awarded with 5\% extra grade. The assignment was received with great enthusiasm, and all teams produced high quality tutorials. The contest aspect kept students motivated. However, the same engagement was not reflected in the use of Git in the development of the project. Even having specific evaluation criteria related to the use of the tool, the teams did not incorporate the tool in their development activities.
+
+By the end of the course, all teams were successful in developing their products. However, we observed that some teams created documentations that did not reflect the activities they performed in their projects. In some cases, instead of documenting their decisions and what they did in the project, students opted to use templates found in the internet that were much more complex than what they were expected to deliver. 
+Therefore, the evaluation criteria may have led students to believe they would be evaluated for the quality of the documents they produced rather than the activities they performed to produce those artifacts. Additionally, students only delivered their work products in the exact date of the deadlines. Therefore, it was difficult to provide guidance and feedback to avoid this problem in advance.
+
+In this class, we applied a questionnaire at the end of the course to collect data on the students’ perceptions of the course. The detailed description and analysis of the questionnaire is described in Section V. For the purpose of evaluating the course in the Action Research study, we consider the questions regarding: (i) how much the project contributed to their learning experience in the topics of Software Requirements, Software Design, Software Construction and Implementation, Software Construction, Configuration Management, and Agile methods; (ii) what are positive aspects of the software project in the course; (iii) what are negative aspects of the software project in the course; and (iv) additional commentary on the course.
+
+Figures X and Y present the students responses about their perception on the impact the project had in learning the topics covered in class. The results were mostly positives, with a better response rate for the topics of “Software Requirements”, “Software Design”, and “Agile Methods”.
+
+Figures
+
+The positive aspects pointed by the students included: (i) the project contributes to a better understanding of the topics learned; (ii) the project allows students to practice the theory learned; (iii) the project allows students to develop teamwork skills; and (iv) the simulation of the professional environment. Some quotes from students:
+
+“The project permitted the topics of the course to be retained and understood much better”
+“Better understanding of the learning topics, better interaction in the work team, and experiencing the topics learned in practice”
+
+“The project is a good simulation of what happens in a company (teamwork, customer relationship, processes to be concluded in deadlines, product development, documentation, and others).”
+The main negative aspects pointed by the students were (i) the time-consuming nature of the practical assignment, and (ii) the lack of commitment of team members. Some quotes of the students:
+
+“There are people in the team who do not contribute in anything”
+
+“It demands a considerable amount of time”
+
+“The lack of time to conciliate the project with the remaining activities in the university”
+
+The following lessons were observed as shortcomings in this cycle:
+
+\textbf{Students projects:} Allowing students to choose their projects consume time as they try to reach consensus with their teammates. Additionally, students change their scope during the project execution, as they try to reduce its complexity in order to make it viable. One of the teams (Team C) decided to change their project in the second iteration, and they had substantial rework with the specification. There was the risk of unbalanced projects complexity.
+
+\textbf{Different projects:} It is harder to promote discussion among students when they are considering different projects as their references. It is also harder for the professor to mentor students in classroom activities when each team is working in different contexts. It would require more teaching assistants to support a higher number of different projects.
+
+\textbf{Too much focus on documentation:} By providing students with evaluation criteria based on the artifacts they have to deliver, students focused more on the documentation than on the execution of activities and their purpose. For some teams, the software they were developing did not correspond to the documentation they produced, therefore they were creating documents with little value.
+
+\subsection{Class 2017.1}
+
+For this Action Research cycle, only seven students enrolled in the course. Considering the issues faced in the previous semester, the following changes were introduced in the Planning Phase:
+Type of project and customer: Considering the problems with multiple projects in the previous semester, it was decided to have a single project. To increase the instructors control over the project, it was decided to use a fictitious project, where one of the instructors (the teaching assistant) played the role of customer. The project for the semester was an Web application for managing a hostel.
+
+Team composition: Given the low number of students enrolled in the course (only 7), we opted for a single team.
+
+Project Activities and evaluation criteria: In this semester, in the beginning of each Sprint, the Professor would act as a coach, describing and negotiating the goals of the sprint, and the outcomes students were expected to achieve. Students were free to choose how to document the outcomes of each activity. The evaluation rubric was composed 
+
+Focus on competences rather than on artifacts: We adopted SWECOM [ref] as a reference to plan the learning outcomes of the project. Therefore, all activities planned for the project execution, should be grounded in the skill sets and activities from this model. However, this model was transparent for students, to avoid any confusion. Therefore, the Professor was responsible for identifying the skills sets and activities from SWECOM that were relevant and compatible with the course syllabus.
+
+Student self-assessment form: By the end of the course, the students would have to fill a form, based on the skill sets and activities selected from SWECOM. The goal was for students to reflect what activities from the model they believed they performed individually, and how it was executed in their project. Therefore, we could evaluate the perception of the students on the development of competences, individually.
+
+In the first project iteration (Intervention Phase), the professor negotiated that students had to: (i) understand the scope of the project, (ii) investigate the technologies they would use to implement the software, (iii) plan how to manage the software development.
+
+The students performed an interview with the instructor, who played the role of customer, to identify the customer requirements, they produced system requirements, user case diagrams and scenarios, and prototypes. All activities were supported by the instructors with classroom activities and short lectures where the students were mentored on what they had to do. For the technologies for the development of the project, they decided to use XXX. For the management of the project development, students decided to use Trello. GitHub as the platform for version control, was the only mandatory tool. The development iteration was concluded with the validation of the requirements with the customer, where students presented a seminar. They named their Project “My-Spot”.
+
+In the second development iteration, the professor negotiated the expected features for the first software release, and the following outcomes: the high-level architecture of the system, the use of the selected tool to manage the development progress, the use of Git, development of test cases for the application. In the end of the iteration, students presented their results for the professor, and validated the features of the first software release. During the validation, the instructor playing the role of customer tested the application, and requested a requirement change in the project.
+
+In the third development iteration, the professor negotiated more features for the next software increment, and the following outcomes: review and update their specifications and design according to the project evolution, create new test cases and develop unit tests.
+
+The results of this class were positive regarding the professor expectations: students produced a software product according to customer specification and applied what they learned in classroom in their process. The feedback from students was also positive. Figures X and Y present the students responses about their perception on the impact the project had in the learning of the topics covered in class.
+
+Figures
+
+The positive aspects pointed by the students were: (i) the simulation of the professional environment, (ii) the possibility to practice the theory learned, and the (iii) the requirement elicitation process. Some quotes of the students:
+
+“The notion, even if it is minimum, about each one of the processes, artifacts and people in the project development.”
+
+“It allows the student to develop the ability to see and experience in practice the theoretical concepts presented in classroom. It allows the identification of fundamental variables for the execution of a software development project, which only theory would not cover.”
+
+“The software elicitation was very interesting”
+
+“The fidelity to the (professional) market and the context in which software engineering is applied in practice”
+
+The negative aspects were related to the (i) time-consuming nature of the practical assignment, (ii) the belief that programming is a deviation from the scope of the course, and (iii) the lack of depth in each stage of software development process. Some quotes of the students:
+
+“A negative aspect was time. However, not considering the deadlines for projects deliveries, but the lack of availability of team members to execute all activities”
+
+“The necessity of time available for students regarding tasks that are not fully connected to the course 
+content, such as the product development.”
+
+“The lack of possibility to act and to get deeper in each of the processes and roles of the development model (scrum). The ideal would be to be able to go through each of the areas in an in-depth way to better understand the pains of each area to propose improvements and better understand the processes.”
+
+Lessons:
+
+-	Type of project and customer: This change solved a number of issues of the previous courses: (i) Less time consumed negotiating the scope of projects; (ii) increased availability of the customer, therefore the students had more contact with a stakeholder; (iii) higher immersion of students in a simulated work environment; (iv) more control over the project, for instance we could simulate changes in the scope after each sprint review.
+
+-	Project Activities and evaluation criteria: students had a more active role in negotiating their learning goals. Consequently, students invested more in the activities. For instance, the use of Git increased considerably, the students explored the use of branches, 5 students acted as active collaborators in the Git project, and they reached the mark of 60 commits. After the second sprint, the students felt the necessity of refactoring the code to increase maintenability. They changed from a perspective of documenting first, to a perspective of discussing possibilities, experimenting and then documenting what was relevant.
+
+-	Team composition: The low number of students allowed the instructors to offer more mentoring. Therefore, it was easier to guide and to monitor the individual  progress of students.
+
+-	Activities in classroom: Considering that there was only one project for the class, it was easier to devote classroom activities focused in providing mentoring for the development of the software project. All activities in classroom were based on the theme of the project. Therefore, all activities in classroom contributed directly to the development of work products students could use in their project. 
+
+\subsection{Class 2017.2}
+
+The goal of this semester, was to reproduce the experience of the previous class. However, in this class, the number of students increased from 7 to 11. Therefore, in the Planning Phase, the following decisions were taken:
+
+-	Gamification: introduction of game elements and mechanics with the purpose of increasing students focus on performing the activities, without the constant observation of the instructors. We used the rationale of appraisal methods from maturity models standards such as SCAMPI and SPICE. Based on a set of competences from SWECOM, we defined a list of achievements. Students had to claim achievements, providing relevant evidences to justify their request. During sprint reviews, the instructors interviewed the team to confirm that the practice related to the achievement was understood. The students grade was equivalent to the number of achievements obtained. Table X presents the game elements used in the course.
+
+-	Type of project and customer: Similar to the previous semester, an instructor played the role of the customer. However, instead of a fictitious project, the class had to develop a Web application to assist the management of a very small factory in the cleaning material business. The instructors visited the factory and interviewed the managers and employees to understand the problems and how a software could help managing the factory operation. Therefore, the students would work in a real problem, with a simulated customer.
+
+-	Team composition: There were 11 students enrolled in the course, therefore they formed two groups of 5 and 6 students. This decision was made to avoid the problems observed in the 2016-1 class related to the size of the group. Both groups would now conduct their own project, sharing the same theme. 
+
+Table IV. Game elements introduced in Class 2017.2
+
+In the beginning of the course (Intervention Phase), students were presented with “game rules”, they organized themselves in teams, and each team chose the name of their fictitious software company. The two teams were named “14A Solutions” and “CALFV”. At the start of each Sprint, the teams were provided with a list of achievements and badges available for the Sprint. In each Sprint, there were 9 badges available. To obtain each badge, the teams had to earn 1-3 specific achievements. Therefore, there was a total of 27 badges and 74 achievements. There were some achievements that were cumulative, e.g.: there were three achievements related to describing 4, 8 and 12 user cases scenarios, respectively.
+
+For instance, in the second sprint, the badge “Project Manager” was available, and to earn this badge, the following achievements were required: “Use a management tool”, “monitor the progress of the sprint”, “identify and treat deviations”. Both teams earned this badge. For the first achievement, both teams used the tool “Trello” to manage the sprint activities, and added the instructors to their boards, as evidences of use.  For the second, one the teams provided screenshots from their boards from one week to the other. For the third …
+
+One of the teams (“CALFV”) immersed more in the scenario and created a spreadsheet to actively plan and document the evidences for each achievement. This team also made more questions about the achievements and how to obtain them. As a result, they earned more achievements (58 out of 74 – 78,4\%) and badges (18 out of 27 – 66,7\%). Consequently, their grade in the assignment was higher. The other team (14A Solutions) only provided evidences at the deadlines. Therefore, they made little use of feedbacks. This team earned a considerable number of individual achievements (43 out of 74 – 58,1\%), however, the number of badges was very low (11 out of 27 – 40,7\%). By the end of the course, both teams successfully delivered two functional increments of the software. However, one of the teams performed better regarding the process.
+
+The questionnaire results presented positive results regarding the contribution of the students in learning and developing skills in the five topics. Figure X and Figure Y show that, following the pattern of the previous classes, “Software Requirement” had the most positive responses (“4 – Substantially” and “5 – Totally”).  In this course, “Software Design and Modelling” had the second best responses, the remaining topics were balanced.
+
+Figures
+
+Regarding the positive aspects, students mentioned the opportunity to experience an environment similar to the professional, the possibility to practice the theory they learned, and exercising teamwork skills. Some quotes of the students:
+
+“(the project) demonstrates how Software Engineering is totally connected with the professional market, and it prepare us for this future.”
+
+“(the positive aspect is) the simulation of a real development, because it allows us to have a professional and correct perspective for good software development.”
+
+“It introduces the reality of software development in industry in a more tangible way.”
+
+“It helps in familiarizing with the subject, forcing us  to learn and to practice what was taught during the classes.”
+
+“Having a more practical perspective about the area (Software Engineering) rather than only theoretical.”
+
+“hands-on helps developing skills.”
+
+Most of the negatives aspects pointed by the students are related to the time-consuming nature of the project, and the recurring problems of team members who believe their peers did not collaborated equally:
+
+“(there was) little time to execute it (the project) along with many other parallel activities.”
+
+“the development of the whole project in a short time is complicated”
+
+“some lack of commitment from some team members”
+
+“in the end, only one member of the team perform all the work related to the software development, because the others are not interested”
+
+From this course, the lessons learned were:
+
+-	Project based in a real problem: …
+
+-	Use of Gamification: The use of game elements to drive the PBL course was satisfactory. The main contribution was providing students with a structured set of activities, and giving freedom for students to choose how and when to address each one. The idea of having to provide evidences to earn achievements, reinforced the reflection on what they were doing. The feedback mechanic also contributed to a higher involvement of the students of one team, who contacted instructors more often to question about the correctness of their evidences. This also allowed the instructors to observe a continuous effort from this team. The teams were more immersed in the shared goal to obtain the reward, than in the competition among teams.
+
+-	Having the same project for all teams contributed for the activities in classroom, where the students could share experiences in a common context. Although there was the risk of students copying the work of others, it did not happen. The teams developed their projects in different technologies, and each team produced different types of documentation. We believe the focus on the activities, rather than the deliverables, contributed to this outcome.
+
+\section{Questionnaire analysis}
+
+In this section we analyze the results of the questionnaires applied in three classes discussed in the previous section (2016-2, 2017-1, 2017-2). The questionnaire was structured in five sections, and eleven questions. The Questionnaire structure is presented in Table IV.
+
+Table V. Questionnaire structure
+
+\subsection{Population sample}
+
+A total of 36 students were formally enrolled and did not evade the courses. The students were invited to participate in the study in the last day of each course. In order to avoid possible bias in their responses, they were informed that the participation in the study was not mandatory, it would not impact in their grades, and that their anonymity would be preserved (and they did not have to provide their names in the form). Therefore, we obtained a total of 32 responses (88.9\%). The distribution of the total population is described in Table X.
+
+Table VI. Population sampling
+
+\subsection{Participant background}
+
+Most of the participants were enrolled in the Undergraduate Program in Information Systems (31 out of 32 – 96.9\%), and there was one Computer Science undergraduate student. Most of the students were enrolled between the fourth and the eighth academic period. For 27 participants (84.4\%), it was the first contact with software engineering in the academia.  However, 14 participants (43.7\%) stated they had some professional experience with software development and software engineering (experience as trainee is included).
+
+Figure 1. Q4 – First Contact with SE in academia
+
+Figure 2. Q5 – Professional experience with software development or SE.
+
+\subsection{Evaluation of the Learning Method}
+
+The purpose of question Q6 was to collect the participants perception on the relevance of a practical assignment for the development of a software project in the context of developing skills or learning SE. The participants were unanimous that it is fundamental to some degree. Twenty-three participants (71.9\%) responded that “Totally agree” with the statement, and 9 participants (28.1\%) responded that “Partially agree” with the statement.
+
+The purpose of question Q7 was to evaluate if the participants agree that the use of traditional lectures, with punctual evaluation methods (exams and specific assignments), are sufficient for learning SE. The opinions were divided, however there was a majority of negative responses (20 – 62.5\%). Nine participants (28.1\%) responded that “Totally disagree” with the statement, 11 participants (34.4\%) responded that “Partially disagree” with the statement, 2 participants (6.2\%) responded that are “Indifferent” toward the statement, 5 participants (15.6\%) responded that “Partially agree” with the statement, and 5 participants (15.6\%) responded that “Totally agree” with the statement.
+
+Figure X presents the distribution of responses for questions Q6 and Q7, where “1” stands for “Totally disagree” and “5” stands for “Totally agree”. 
+
+Figure 3. Evaluation of the use of software projects as practical assignments, and the use of only traditional lectures and punctual assignments.
+
+\subsection{Evaluation of the project contribution to learning SE topics}
+
+In question Q8, the participants were asked to what extent the software development project contributed to learn of develop skills in five topics covered in the Introductory Software Engineering course. Figure X describes the distribution of the responses, and Figure Y presents the data in a Box-Plot chart. Results shows that Software Requirements and Software Design and Modelling were the topics most benefited from the use of the project as a learning instrument, followed by Agile Methods, Configuration Management and Software Construction and Implementation, in this specific order.
+
+Figure 4. Contribution of the software project in learning
+
+Figure 5. Box-plot chart for Q8
+
+\subsection{Positive and negative aspects of the project in the course}
+
+In questions Q9 and Q10, the participants were asked to describe the positive and negative aspects of the software development project assignment they participated. To analyze the answers, we used an approach inspired in the coding phase of Ground Theory. Therefore, two researchers analyzed the responses individually and marked relevant segments with “codes” (tagging with keywords). Later, the researchers compared their codes, to reach consensus, and tried to group these codes into relevant categories. Consequently, it is possible to count the number of occurrences of codes and the number of items in each category to understand what recurring positive and negative aspects are pointed by the participants, and theorize possible lessons learned.
+
+Regarding the positive aspects, the data analysis resulted in 24 different codes, which occurred 54 times. The codes were grouped in five main categories: Learning Process (16 occurrences), Professionalism (10 occurrences), Practice (14 occurrences), and SE Skills (14 occurrence). Figure X presents the categories, subcategories and codes. The numbers in parenthesis represent the number of times the code was assigned in the responses.
+
+Figure 6. Positive aspects stated in the responses of Q9
+
+The category “Learning Process” groups codes related to the participants statements regarding how the project helped them in acquiring, retaining and deepening knowledge, and how it facilitated the understanding of the SE topics learned in class. For instance, 10 students mentioned positive aspects related to improved learn and comprehension of software engineering topics, 3 students mentioned the project contributed to personal development or skill development, and 2 students mentioned they liked the evaluation process because it was more dynamic and it did not rely on memorization.
+
+The category “Professionalism” groups codes related to the participants perception on how the project simulates a work environment similar to the professional context of software engineering. The simulation of a professional environment was directly mentioned by 7 students. Three students also mentioned that the project allowed them to develop a professional perception, that it prepares for the future professional life, that the pressure for delivering work products was relevant for understanding industry dynamics.
+
+The category “Practice” groups codes related to the positive aspects of the practical nature of the project. The most recurrent codes were related to how the project allowed the participants to see in action the theory they learned in classroom (6 participants), and how the project allowed the participants to practice (apply) the concepts they learned (5 participants). Three participants claimed that the practical experience was positive in general.
+
+The category “SE Skills” groups codes related to software engineering activities the participants explicitly stated as positive outcomes of the project. Seven participants mentioned soft skills such as teamwork (in 5 responses), learning new technologies and methods (in 1 response) and dealing with stakeholders (in 1 response). Seven participants mentioned process related topics, such as understanding the software development process (2 responses), requirement elicitation (2 responses), agile methods (1 response), documentation (1 response), and planning for software development (1 response).
+
+For the negative aspects, the data analysis resulted in 17 different codes, which occurred 42 times. The codes were grouped in five main categories: time (18 occurrences), teamwork (11 occurrences), application development (7 occurrences), project as a learning tool (5 occurrences), and development process (1 occurrence). Figure X presents the categories, subcategories and codes. The numbers in parenthesis represent the number of times the code was assigned in the responses.   
+
+Figure 7. Negative aspects stated in the responses of Q10
+
+The most recurrent issues pointed by the participants were related to time (18 occurrences). Students complained that this type of activities demands too much time (12 occurrences), and that it was troublesome to divide their time with other activities from the university (6 occurrences). 
+
+The problems in the category of teamwork (11 occurrences) were principally related to the lack of commitment of some team members (4 occurrences), and unbalanced effort distribution (4 occurrences), i.e. some students did more activities than others. In fact, these problems were observed in every iteration of the course (as described in Section III), which motivated the instructors to devote 20\% of the maximum grade of each development iteration to individual assessment. Other issues related to this category were the difficulty in managing people and conflicts (1 occurrence), and communication problems (1 occurrence). One participant pointed a issue that is similar to a concern described in Section III: the division of the activities among team members may compromise learning, since students tend to develop the tasks they are already familiar with. Therefore, activities in classroom should promote at least a minimum contact of the students with each topic, and instructors should encourage students to participate in all activities.
+
+Regarding the development of the application (6 occurrences), two participants believed that it was not related to the scope of the course. One participant stated that the development of the application should be simplified. Other issues were specifically related to programming skills, as three students complained about having to code, the lack of familiarity with the technologies (programming language and framework, and the lack of experience with software development compromised the student ability to contribute as much as he wanted.
+
+The category “project as a learning tool” (6 occurrences) grouped three negative aspects: three students claimed the project was too laborious; one students claimed that the students were not prepared to deal with problems that are external to the academia; and one participant warned that the assignment penalizes students that prefer a theoretical approach and are not used to work with pressure. The last statement was already discussed in [REFERENCE]. One student mentioned that the approach lack depth regarding the execution of each phase of software development. Finally, only one student complained about the excess of documentation.
+
+\section{Comparison with the use of a software project assignment in a traditional class format}
+
+The questionnaire described in section IV was applied in another introductory software engineering course, in Federal University of Minas Gerais. The course adopts similar syllabus from the course described in section III, and is also offered for undergraduate students in Information Systems. The course adopts a similar assignment, where students have to work in teams to develop a software project. However, the course follows a traditional teaching method, with traditional lectures and the project is held in parallel. 
+
+In the assignment, the students have to work in groups of up to 5 members. They received clear objectives and dates for the delivery of the following artifacts: a Product Vision Document; a Requirement Specification and Analysis Document; a Software Design document, a report describing the development of the software using Scrum; and a functional version of the software. The students received detailed instructions about the software they had to develop: a hotel management application. The students were also provided with templates they should use to produce their documents. The evaluation of the project was based on the correctness and completeness of their deliveries. 
+
+Thirty-five students participated in the project, and they formed 10 teams. By the end of the course, the students were invited to answer the same questionnaire that was described in Section IV. The students were told the participation was not mandatory, and would not impact their grade. As a result, 17 students (48.6\%) responded the questionnaire. In this sample, there were responses of 8 different teams (80\%). Table X describes the sample of the participants of this course (labelled Non-PBL) in comparison to the total sample of participants in the PBL courses (labelled as PBL), described in previous sections.
+
+Table 8. Sampling of the study
+
+Figures X, y and Z compares the results of the background questions Q2 (academic period of the participants), Q4 (“Was this your first contact with a Software Engineering course?”) and Q5 (“Do you have any experience with SE as a professional or trainee?”), respectively.
+
+Figure 8. Q2 – Academic period of the participants
+ 
+Figure 9. Q4 – First Contact with SE in academia (PBL x Non-PBL)
+ 
+Figure 10. Q5 – Professional experience with software development or SE (PBL x Non-PBL)
+
+\subsection{Evaluation of the Learning Method}
+
+Regarding the evaluation of the relevance of a practical assignment for the development of a software project in the context of developing skills or learning SE (Q6), the results were very similar to the responses of the PBL courses. Nine participants (52.9\%) responded that “Totally agree” with the statement, 7 participants (41.2\%) responded that “Partially agree” with the statement, and only 1 participant (5.9\%) responded that “Partially disagree” with the statement.
+
+In relation to the question Q7, the responses were also similar to the ones observed for the PBL course. In relation to the statement “I believe traditional expository lectures, with punctual evaluation methods (exams and specific assignments), are sufficient for learning SE”, 4 participants (23.5\%) responded that “Totally disagree” with the statement,  9 participants (52.9\%) responded that “Partially disagree” with the statement, and 4 participants (23.5\%) responded that “Partially agree” with the statement.
+
+Figure X shows the distribution of the responses for Q6 and Q7, and Figure Y shows the comparison with the results from the PBL course.
+ 
+Figure 11. Responses for Q6 and Q7
+ 
+Figure 12. Comparison of the responses for Q6 and Q7
+
+\subsection{Evaluation of the project contribution to learning SE topics}
+
+In the Non-PBL course, the perception of the participants regarding the contribution of the project in learning the SE topics covered in the course was less positive than the perception of the participants in the PBL course. Figure X presents the distribution of responses for question Q8. While the number of responses “4. Substantially” and “5. Totally” was superior to 50% for all topics in the PBL sample, only one topic (Agile Methods) had similar result. Figure Y shows the comparison between the responses of the two samples, using box-plot charts. The median value of the responses from the PBL sample was superior in exactly one point to the Non-PBL sample for all topics, except “Agile Methods”
+ 
+Figure 13. Contribution of the software project in learning in the Non-PBL sample
+
+Figure 14. Comparison of the results from Q8
+
+\subsection{Positive and negative aspects of the project in the course}
+
+Comparing the positive aspects captured from the results of Q9 (“What are the positive aspects of the Software Project as a practical assignment?”) for the PBL and Non-PBL samples, we observe a total of 28 unique codes, with 4 exclusive codes from the Non-PBL sample, 16 exclusive for the PBL sample, and 8 codes in common for both samples. There were 87 occurrences of these codes, with 7 occurrences for the exclusive codes from the Non-PBL sample, 19 for the exclusives codes of the PBL sample, and 61 for the codes in common for both samples. Table X lists all positive aspects found, their categories, the number of occurrences (#) and the percentage of participants who mentioned them (\%) for each sample (PBL, Non-PBL, and Total).
+
+Table 10. Positive aspects identified in the responses of the PBL and Non-PBL samples for Q9.
+
+Table 10 presents the distribution of the positive aspects in relation to their categories for the PBL and Non-PBL sample. The data shows that the majority positive aspects stated by the Non-PBL sample are grouped in the categories “Specific SE Skills” and “Practice”. The positive aspects pointed by the PBL sample are more evenly distributed, with a higher count of positive aspects related to the learning experience. The category “Professionalism” was also more present in the responses of the PBL samples.
+
+Table 9. Categorization of the positive aspects identified in the responses of the PBL and Non-PBL samples for Q9
+
+Comparing the negative aspects captured from the results of Q10 (“What are the negative aspects of the Software Project as a practical assignment?”) for the PBL and Non-PBL samples, we observe a total of 34 unique codes, with 17 exclusive codes from the Non-PBL sample, 10 exclusive for the PBL sample, and 7 codes in common for both samples. There were 82 instances of these codes, with 30 for theexclusive codes from the Non-PBL sample, 11 for the exclusives codes of the PBL codes, and 41 for the codes in common for both samples. 
+
+Table 11 presents the distribution of the negative aspects in relation to their categories for the PBL and Non-PBL sample. The data shows that the majority of the negative aspects stated by the Non-PBL sample are grouped in the categories “Project as Learning Tool”, “Documentation” and “Development Process”.
+
+Table 11. Categorization of the negative aspects identified in the responses of the PBL and Non-PBL samples for Q10
+
+Table 12. Negative aspects identified in the responses of the PBL and Non-PBL samples for Q10.
+
+The first, is directly related to the perceptions of the students regarding the learning process, where the higher number of complaints were related to the lack of orientation for the execution of the project and the lack of activities in the classroom to provide direct support to the development of the project. These two points were objectively addressed in the Action Research discussed in Section III, where the development of the project was the core activity in the course. Therefore, not only the professors devoted several classrooms activities for mentoring students and providing time for students to work in classroom, but also the course was  The first, is directly related to the perceptions of the students regarding the learning process, where the higher number of complaints were related to the lack of orientation for the execution of the project and the lack of activities in the classroom to provide direct support to the development of the project. These two points were objectively addressed in the Action Research discussed in Section III, where the development of the project was the core activity in the course. Therefore, not only the professors devoted several classrooms activities for mentoring students and providing time for students to work in classroom, but also the course was structured focusing on continuous orientation for the project development.
+
+In the “Documentation” category, the participants stated that the documentation they had to provide was too extensive, not practical, and boring. In the “Development Process” category, the students stated that it was far from what the participant believed was the reality of a professional environment, that the students perceived little value in the development process and its documentation, that the process had little contribution for learning, and that the process promoted demotivation in the students. In the Action Research discussed in Section III, a key point addressed was the focus on expected activities students should perform, giving the students freedom to choose how to perform them. Therefore, in the PBL approach, the students had to focus on goals, not in following a process or filling document templates.
+
+Considering the positive and negative aspects for each population sample, the PBL sample provided 54 positive codes and 42 negative codes. The Non-PBL sample provided 33 and 40 positive and negative codes respectively. Therefore, the proportion of positive aspects codes was higher in the PBL sample and the proportion of negative codes was higher in the Non-PBL sample.
+
+\section{Discussion}
+
+The experience of using of PBL in an introductory software engineering course was positive both in the students and instructors’ perceptions. There was an initial concern that the learn-by-doing approach would be more confuse than the learn-then-practice approach in the specific case of an introductory software engineering course. However, we perceived that students were more engaged in the learning process using the PBL approach, and the approach allowed a better immersion regarding the software development process. In the following subsections we summarize the main observations made in relation to the research questions defined in Section II.
+
+\subsection{RQ1 The challenges of using PBL in an introductory software engineering course}
+
+The main challenges we observed during the Action-Research study were:
+
+\textbf{Scaling PBL:} In the cases described in Section III, the class with the best overall results was Class 2017.1. This class had the smallest number of students enrolled, therefore the instructors were able to provide better guidance and feedback for students. The introduction of gamification in the later instance of the course allowed the instructors to provide general directions to students, in form of students, without recurring to a strict process, and streamlined the evaluation of teams progress.
+
+\textbf{Selection of appropriate projects:} Projects play the central role in PBL approaches. The literature suggests the use of real open-ended projects. However, the (i) lack of control over the project and the (ii) volatility of the commitment of external stakeholders are threats that need to be carefully analyzed. For the first (i), especially in the case of introductory courses, instructors must be aware of the risk that the project may not support expected learning outcomes or provide students with meaningful opportunities to apply specific knowledge related to the course syllabus. For the second (ii), external stakeholders may lack the motivation or time available for participating in the project. It is also difficult to demand students to meet with stakeholders in environments external to the university, or outside classroom time. Finally, external stakeholders are susceptible to changes in their business rules, that may invalidate the whole project, and external clients may abandon the project in the middles of the course. All these situations may lead to student frustration, or risk of not addressing expected learning outcomes.
+
+\textbf{Tracking progress and learning outcomes of students:} Teamwork is an important software engineering skill, not only in curricular guidelines (REFERENCIA) but also in the students’ perception (see Table 10). However, it is difficult to track the individual progress of students. The data obtained from students’ response shows that there is difference in commitment levels in the teams, and that some students work more than others. The more open-ended is the project, the more difficult some students have in understanding what they are supposed to do. Classroom activities helped alleviating this problem in the cases described in Section III, as the instructors could watch the participation of each student in teams. Also, gamification provided the students with clearer goals they could use to measure and plan their progress.
+
+\textbf{Balancing guidance and freedom of choice:} In the cases described in Section III, there was always the challenge of deciding what students should decide by themselves, and what was predefined. For instance, in Class 2016.2, the students were given documentation templates, and their evaluation was based on the delivery of such artifacts. As mentioned, this led students to focus on filling artifacts with little reflection on their importance. In the other hand, relying only on the instructors’ guidance, without a clear roadmap or clear evaluation criteria reflecting the activities the students were supposed to do, as the case of Class 2016.1, may confuse students. Therefore, we opted to give students clear roadmaps of “what to do” but leaving them free to choose “how to do”. In this aspect, gamification allow the instructors to provide the students this roadmap and link it to the evaluation rubric. Additionally, the use of a reference model such as SWECOM, supported instructors in defining meaningful objectives for students to pursuit during the execution of the project. 
+
+\subsection{RQ2 Students’ perception on the use of PBL in an introductory software engineering course}
+
+The main findings from the questionnaire responses were that the students perceived a positive contribution of the practical project in their learning process in relation to specific software engineering topics. The topics that received better ratings were “Software Requirements” and “Software Design and Modelling”. However, in a scale of 1 (no contribution) to 5 (totally contributed), the median value was above 4. In comparison to the perceptions of students in a course using a software development project, but not the PBL approach, these median values of the PBL samples were 1 point higher for all topics, except for “Agile Methods”.
+
+The most recurrent positive aspect observed by the students were related to the simulation of a professional environment (7 responses), the better comprehension of the topics learned in classroom, and the possibility of seeing the theory in practice. In general, most of the responses were related to the learning process. The most predominant negative aspects were related to the time-consuming nature of PBL, and problems related to working in teams. The first problem is inherent to the PBL approach, while the second is a challenge that is often related to software engineering. In contrast, the participants of the Non-PBL sample directed more complaints about the project as a learning tool and the documentation that was required for evaluation.
+
+Regarding the use of a practical software development project for learning software engineering, both samples shared similar distribution of responses, stating that they are strongly favorable to its relevance. Similarly, both samples shared similar distribution of response disagreeing that traditional expository lectures and evaluation methods are sufficient for learning software engineering. For both questions, the responses were even more emphatic when we segment the population in students with some professional experience with software engineering or software development, and students without experience. 
+
+Therefore, there was a general positive acceptance of PBL from the students. A software development project not only helped in balancing theory and practice but also provided students with the opportunity to understand some aspects that only theory would not address.
+
+\section{Threats to Validity}
+
+In this section, we document potential threats to the study validity and discuss some bias that may have affected the study results. We also explain our actions to mitigate them.
+
+\textbf{Results:} The results presented in the study are first and foremost observations, suggestions and lessons learned for further research. We have obviously presented our own view of the analysis of the questionnaires and classroom experiences. However, there may be several other important issues in the data collected, not yet discovered or reported by us. Nevertheless, our reports may provide significant insights for other researchers and educators when planning or evaluating PBL approaches in similar settings.
+	
+\textbf{Questionnaires:} In order to avoid the risk of misinterpretations of the questions, the questionnaires was developed in stages. The first version of the questionnaire was reviewed by two researchers who are also software engineering professors. It was then piloted with three students in order to assess if the questions were clear, not ambiguous, and if the available options for answers were coherent. Additionally, the participation in the questionnaire was not compulsory, it preserved the participants anonymity, the participation did not contribute for grades, and the questionnaires were always applied by the conclusion of the course. These decisions were taken to avoid the bias of students providing positive answers for the sake of fearing bad consequences or hoping that it would somehow benefit them.
+
+\textbf{Number of Participants:} A larger number of participants should be interviewed to capture the general view of a broader audience. However, the study was limited to the population of students that (i) were enrolled in the course, and (ii) were willing to participate in the questionnaire. For instance, the Non-PBL sample had a lower participation rate. However, by forcing students to participate in the questionnaire, or rewarding the participation with grades, we would introduce more bias. Additionally, this type of study is limited by the availability of professors willing to allow the author to participate in their teaching activities, and that were willing to use the approaches considered for this study.
+
+\textbf{Population sampling:} The comparison of the PBL and Non-PBL samples suffers from the bias of being from different institutions. Therefore, there is the bias of the participants having different backgrounds and the comparison not being adequate. However, other options were considered such as having half of the class using PBL and the other using traditional lectures, or alternating the learning methods in different semesters in the same institution. However, the cost-benefit of both approaches was not relevant. In the case of this study, both courses are part of the curriculum of undergraduate programs in Information Systems, both share similar syllabus, both are 60 hours courses, and both are provided by the public institutions. The author of this work acted as a teaching assistant in both setups. We acknowledge that further investigation is required, and that our results are not appropriate for generalization.
+
+\section{Final Remarks}
+
+This chapter presented an experience report on the use of PBL in an introductory software engineering course. The approach was applied in four academic periods, for a total of 49 students participated in these courses. An Action Research study was performed to support the incremental evolution of the course, identifying key problems and iteratively proposing changes to the course. The main challenges faced during the Action Research study were related to scaling PBL, selecting appropriate projects, tracking progress and learning outcomes of students, and balancing guidance and freedom of choice. Gamification, the use of a training techniques from the industry (coaching and mentoring), and the adoption of reference models for the definition of meaningful goals for students, were relevant resources for addressing those issues.   
+
+In addition to the observation of the cases, 32 students responded a questionnaire to collect their perceptions about the course. The responses show an overall positive reception of the method. We compared these responses to the responses of 17 students who participated in an introductory software engineering course with similar syllabus that also used a software development project with similar learning goals. However, this second course adopted a traditional teaching instead of PBL. The overall responses of the PBL sample were more positive than the responses of the Non-PBL sample, both in relation to the contribution of the project to learning specific software engineering topics, and in relation to the proportion of positive and negative aspects stated by the students. However, both samples agree in similar proportion that practical development projects are necessary for learning software engineering, while they disagree in similar proportion that traditional lectures are sufficient for learning software engineering.
+
+The lessons learned from the experiences described in this chapter are inputs for the proposal of a teaching models that combines PBL and gamification.

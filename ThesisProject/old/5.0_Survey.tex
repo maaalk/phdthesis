@@ -1,0 +1,152 @@
+\chapter{Survey with Developers}
+\label{ch:survey}
+
+As shown in Chapter~\ref{ch:evaluation}, our method was applied to identify reuse opportunities for four software domains under analysis: e-commerce, accounting, restaurant, and hospital. However,  because of the low response rate for the domains: accounting and restaurant, we discarded both domains in the analysis presented in this chapter. The reuse opportunities identify by our method, need manual inspection in order to evaluate these  results. The goal of this chapter is to provide an empirical evaluation of the top-ten most frequent classes in each domain identified by the proposed method. This chapter presents a survey with domain experts in each software domain analyzed. Section~\ref{ch5sc:settings} presents the settings required to design the survey, such as the selection of participants. Section~\ref{ch5sc:background} presents the background of the survey participants. Section~\ref{ch5sc:results} presents results of this study. Section~\ref{ch5sc:threatsValidity} shows some threats to validity that  may affect our findings. Finally, we conclude this chapter with some final remarks in Section~\ref{ch5sc:finalRemarks}
+
+
+
+
+
+\section{Survey Settings}
+\label{ch5sc:settings}
+
+The proposed method is able identify reuse opportunities in systems of different domains and  distinct sizes. To assess the relevance of the results of the exploratory study conducted in a controlled environment (presented in Chapter~\ref{ch:evaluation}), we conducted a preliminary evaluation of JReuse. As a preliminary study, we assess only the identification of classes by the method. For this purpose, we designed a survey with specialists from each of the four software domains under analysis: e-commerce, accounting, restaurant, and hospital. A survey is a research strategy to identify characteristics of a population of individuals~\citep{wohlin2012experimentation}. In general, it is conducted with support of associated to the use of questionnaires for data collection~\citep{Easterbrook2008}. 
+
+The survey is composed by four questionnaires, with the purpose of assessing the JReuse results for each of the four software domains analyzed. We asked domain experts to indicate the level of relevance for a certain class to  a given domain. We consider an increasing scale of relevance from 0 to 5; 0 means that the developer disagrees completely that the class is specific of the domain assessed; 5 means that he fully agrees that the class is exclusive of the domain analyzed. The survey was conducted in June and July of 2016.
+
+Each questionnaire contains $17$ questions, as shown in Table~\ref{tab:settingsSurvey}. The first four questions, namely Q1 to Q4, are related to background information and aim to provide us to provide  us with background information of the participants. The other questions, from Q5 to Q15, are related to classes that may be specific for the given domain, or non-specific, from the viewpoint of the participants. A control class, \texttt{Game}, was introduced, to assess the quality of the responses. It is out of the scope of the four domains under analysis. Finally, Q17 is an open question for participants to provide us subjective comments regarding the survey. We do not discuss Q17 in this dissertation, because it represents only feedback for the survey improvement in further replications.
+
+%is out of the scope of the four domains under analysis was introduced, to assess the quality of the responses. Finally, Q17 is an open question for participants to provide us subjective comments regarding the survey. We do not discuss Q17 in this dissertation, because it represents only feedback for the survey's author with respect to the conducted design.
+
+
+%The questionnaire consists of 17 questions, which can be divided into three  parts, including background information of participants. 
+
+\begin{table}[!h]
+\centering
+\tiny
+\caption{Survey Settings}
+\label{tab:settingsSurvey}
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}Group}                  & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Questions}                                                                                                                                                                                                                                                                                                                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Alternative}                                                                                                                                                 \\ \hline
+                                                                     & \begin{tabular}[c]{@{}l@{}} \justify (Q1)  Do you work with \\ software development ?\end{tabular}                                                                                                                                                                                                                                                                                                                & "Yes"; "No"; "Partially"                                                                                                                                                                                 \\ \cline{2-3} 
+																	 & \begin{tabular}[c]{@{}l@{}} \justify (Q2)How long do you \\ develop software?\end{tabular}                                                                                                                                                                                                                                                                                                                        & \begin{tabular}[c]{@{}l@{}} \justify "For less than one year"; \\ "Between one and three years"; \\ "For more than three years"\end{tabular}                                                                           \\ \cline{2-3} 
+\begin{tabular}[c]{@{}l@{}}Background\end{tabular}                   & \begin{tabular}[c]{@{}l@{}} \justify (Q3)Choose the highest level in \\ computer science \end{tabular}                                                                                                                                                                                                                                                                                             & \begin{tabular}[c]{@{}l@{}} \justify "PhD"; "Master Degree"; \\ "Complete Graduate"; \\ "Ongoing graduate program"; \\ "High school or below"; \\  "I don't have knowledge \\ about computer science"\end{tabular} \\ \cline{2-3} 
+																	 & \begin{tabular}[c]{@{}l@{}} \justify (Q4) Do you develop software products\\  for the <DOMAIN> domain ?\end{tabular}                                                                                                                                                                                                                                                                                            & "Yes"; "No"; "Partially"                                                                                                                                                                                 \\ \hline
+\begin{tabular}[c]{@{}l@{}}Domain Specific \\ Questions\end{tabular} & \begin{tabular}[c]{@{}l@{}} \justify (Q5 ~ Q15) Please, consider the \\ following classes. Which classes \\ do you consider that belong to \\ the < DOMAIN > domain? \\ Assume a range from 0 to 5 \\ where 0 means you disagree \\ completely that the class is from \\ the < DOMAIN > domain and \\ 5 means you completely agree \\ that the class is exclusive \\ from the < DOMAIN > domain.\end{tabular} & likert scale: 0  to 5                                                                                                                                                                                    \\ \hline
+Comments                                                             & \begin{tabular}[c]{@{}l@{}} \justify (Q17) If you have further comments, \\ please use the text area below\end{tabular}                                                                                                                                                                                                                                                                                                 & Open question                                                                                                                                                                                            \\ \hline
+\end{tabular}
+\end{table}
+
+In general, literature recommends the selection of a representative sample participants from the target population to perform a survey~\citep{Easterbrook2008}. For this purpose, we based our participant selection on previous work~\citep{Salvaneschi:2014,Kalliamvakou:2014}. We performed eight steps described as follows, considering the systems we collected from GitHub. First, for each domain, we selected the top-200 most popular repositories sorted by decreasing order of stars. In GitHub, stars are a meaningful measure for repository popularity among the
+platform users, and they may be used to support the selection of well-evaluated systems  by developers. Second, we excluded projects analyzed in Section~\ref{ch4sec:dataSet}. This decision was made to minimize bias with respect to the previous knowledge of participants on the analyzed systems. 
+
+Third, we excluded Android projects because the design of these projects may vary when compared with traditional Java projects. We also excluded projects written in other languages rather than English because JReuse performs a lexical analysis of systems and we target only on project written in English. Fourth, we excluded projects with less than $20$ classes and $20$ methods, because we intend to compose a data set with sufficient number of  domain experts for analysis. We also excluded projects with less than an year of life for the same reason. Finally, from the remaining projects, we selected the top-three committers for each project to collect their valid email addresses. We use these emails to invite developers for the survey.
+
+A total of $202$ email addresses from domain experts  were  extracted from the $198$ different projects we collected. We sent a specific questionnaire to participants for each system domain. A total of $31$ questionnaires, i.e., around $15.34$\%, were responded. Table~\ref{tab:survey} presents the number of  participants who answered the questionnaire per domain. We only got one answer for the Accounting domain and none for Restaurant. Since few participants responded the accounting and restaurant questionnaires, we discarded both domains in the analysis presented in this section. Therefore, our analysis is based on 31 answer, 9 for Hospital and  22 for e-commerce.
+
+\begin{table}[!h]
+\centering
+\caption{Population Sampling Distribution}
+\label{tab:survey}
+\scriptsize
+\begin{tabular}{|l|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Domain}} & \textbf{Projects} & \textbf{Emails Sent} & \textbf{Answer} \\ \hline
+Accounting                                           & 11       & 11           & 1      \\ \hline
+Restaurant                                           & 10       & 13           & 0      \\ \hline
+Hospital                                             & 56       & 111          & 9      \\ \hline
+E-commerce                                           & 121      & 67           & 22     \\ \hline
+\multicolumn{1}{|c|}{Total}                          & 198      & 202          & 32     \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section{Participant Background}
+\label{ch5sc:background}
+
+In this section, we discuss the background information collected from Q1 to Q4. Figure~\ref{fig:background} presents the background of participants for  analysis of the e-commerce and  hospital domain (Q1). Figure~\ref{subfig:back1} shows that $25$ of the $31$ participants (around 80\%) work in the context of software development. Since more than a half of the participants are software developers, we assume that the sample is appropriate to evaluate our method. Figure~\ref{subfig:back2}
+shows the results regarding professional experience of participants (Q2). Note that $18$ of them (around $58$\%)  have more than three years of professional experience, and $12$ (around $38$\%) have between one and three year of experience. Only one out 31 participants has less than one year of the work experience. 
+
+With respect to the education level in Computer Science (Q3), Figure~\ref{subfig:back3} shows that $27$ participants, i.e., around $87$\%, hold at least a complete graduate degree in the area. Therefore, we conclude that the participants are appropriate to our analysis.  Figure~\ref{subfig:back4} presents the results with respect to the development of product for the respective domain (Q4). In total $26$ participants (around $83$\%) develop software for the domains analyzed  and $5$ (around $16$\%) participants do not develop software for the respective domain. However, all 31 participants were selected because they frequently commit in projects of the analyzed domains. Therefore, we assume that the participants are able to evaluate the relevance of entities for the given domain.
+
+
+
+
+\begin{figure}[!h]
+\center
+\subfigure[Work in software development\label{subfig:back1}]{\includegraphics[width=0.47\textwidth]{img/b1.jpg}}
+\subfigure[Experience in software development
+\label{subfig:back2}]{\includegraphics[width=0.47\textwidth]{img/b2.jpg}}
+\subfigure[Knowledge in computer sciences
+\label{subfig:back3}]{\includegraphics[width=0.47\textwidth]{img/b3.jpg}}
+\subfigure[Development of product for the domain
+\label{subfig:back4}]{\includegraphics[width=0.47\textwidth]{img/b4.jpg}}
+\caption{Background of Participants}
+\label{fig:background}
+\end{figure}
+
+
+
+
+
+
+
+\section{Results}
+\label{ch5sc:results}
+
+This section presents the main results of the survey, with respect to questions Q5 to Q15. These questions are related to the level of relevance for classes, identified by JReuse as reuse opportunities, to  a given domain. Note that we considered only the top-ten most frequent classes reported by our method for each domain and a control class (\texttt{Game}). Considering all participants, we computed the mean of relevance level for each class from Q5 to Q16. Based on the mean for the classes, we chose 3 as a thresholds to classify a class as relevant ($mean \geq 3$) or irrelevant ($mean < 3$) for the respective domain. After, we computed the number of classes classified as relevant.
+
+Figure~\ref{fig:accuracy} presents the percentage of classes considered as relevant by the participants per domain. We observe that 90\% of the classes identified by JReuse as reuse opportunities are relevant for the e-commerce domain from the participants' viewpoint. On the other hand, 10\% of the classes were not indicated as a relevant reuse opportunity. For example, for the e-commerce domain, the only class indicated by the method as reuse opportunity, but not indicated as relevant by domain experts is \texttt{User}. In fact, this class is a generic entity for software systems. That is, it may compose systems from several domains.
+
+Figure~\ref{fig:accuracy} also shows the results for the hospital domain. In this analysis, we observe that the participants agree that 80\% of the classes indicated by JReuse are relevant for the respective domain. However, 20\% of classes were not indicated as relevant by the  participants. The class \texttt{Login}  presented a mean of $2.34$ and \texttt{User} presented a men of $2.23$ for relevance level. In other words, we conclude that, according to the results presented by the participants, these two classes are generic and  may not represent reuse opportunities for the analyzed domain.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.6\textwidth]{img/precision.jpg}
+\caption{Accuracy of the method JReuse compared with participants}
+\label{fig:accuracy}
+\end{figure}
+
+\newpage
+In summary, participants of the survey agree that 90\% and 80\% of the classes from the e-commerce and hospital domains are relevant, respectively. Therefore, our data suggests that JReuse is effective and accurate in the identification of reuse opportunities. Since the variation of percentage for both domains is minimum, i.e., 10\% to 20\%, we assume that JReuse provides sufficient results regardless the analyzed domain.
+
+
+\section{Threats to Validity}
+\label{ch5sc:threatsValidity}
+
+With respect to the survey with software developers, we conducted a careful study to assess the relevance of reuse opportunities identified by JReuse. However, there are some threats to validity that may invalidate our findings. We discuss each type of threat to validity of our study, based on~\cite{wohlin2012experimentation}, as follows. \\
+
+
+% construção da survey
+\noindent
+\textbf{Construct Validity.}  
+In order to compose our participant set, we selected emails of software developers from $404$ different Java projects. To provide diversity of the participants of the survey, we selected developers from projects based on the number of stars in GitHub. Although our participant set may not be representative, the 178 selected systems are developed by several contributors, from different domains, and provide distinct functionalities. Furthermore, in this preliminary study, we do not assess the effectiveness of JReuse in terms of methods identified as reuse opportunities. This decision was taken to prevent a high number of questions and the increase of complexity of the survey. Thus, we designed a short survey that participants are motivated to answer. However, we performed a careful analysis of the classes.\\
+
+\noindent
+\textbf{Internal Validity.}  
+Since our survey was available during a short time (from June to July 2016, specifically), we obtained a small number of participants. The collected results may be, then, insufficient to draw precise conclusion regarding the effectiveness of JReuse. However, we sent invitations for a significant number of participants. In addition, we invited the top-three contributors in terms of commits for each project. Such treatments aim to minimize problems with the lack of availability for developers to participate in the survey. Furthermore, to minimize problems with data collection, we designed an online questionnaire to automatically collect the participants' answers.\\
+
+\noindent
+\textbf{Conclusion Validity.} With respect to the data analysis, we computed the mean of relevance level reported by participants for each class, per domain. We then computed the percentage of classes considered as relevant by the participants. We defined a thresholds to classify a class as relevant or irrelevant according to the subjective opinion of the author. Therefore, this threshold may not be applied in other contexts or considering more systems. However, to minimize this threat, we analyzed a significant number of participants (i.e., 31 participants) and the top-ten most frequent classes per domain.\\
+
+\noindent
+\textbf{External Validity.} 
+Regarding the study generalization, we present some relevant issues. First, although most  participants have at least one year of professional experience, our participant set may not represent the real context of software development. However, the majority of participants has three or more years of experience. Such participants are developers from different organizations. Second, from the four domains analyzed, we received  a significant number of responses only for two domain: e-commerce and hospital. Therefore, our results may not be generalized to other domains.
+
+
+
+
+\section{Final Remarks}
+\label{ch5sc:finalRemarks}
+
+%Esse capítulo (...)   Por meio desse estudo foi possível identificar a acurrácia do método JReuse, quantificar e mensurar  as oportunidades de reuso.  
+
+
+This chapter describes a survey with 31 software developers of two domains: e-commerce and hospital. This survey aims to assess the effectiveness of JReuse in identifying relevant reuse opportunities given a domain. As a preliminary study, we assess only the identification of classes by the proposed method. We present in detail the survey settings, including the process of selection of participants and the questionnaire for participants to respond. A total of 31 participants answered the questionnaire, 22 for the e-commerce domain and 9 for the hospital domain. 
+
+Our study provided a positive results regarding the effectiveness of JReuse. We observe that participants agree with 80\% to  90\% of the classes identified by our method as reuse opportunities for the hospital and e-commerce domain. Therefore, our data suggest that JReuse is able to effectively identify reuse opportunities with respect to classes for different domains.
+
+Finally, the chapter discusses the main threats to the validity of our study. These threats include the the selection of appropriate participants and classes for analysis, and also the generalization of our study findings. Chapter~\ref{ch:conclusion} presents the main conclusion of this dissertation. The provided discussion encompasses both the empirical study in controlled environment (Chapter~\ref{ch:evaluation}) and the survey described in this chapter. The next chapter also suggests future work.

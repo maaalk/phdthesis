@@ -1,0 +1,105 @@
+%\newcommand{\dummytxt}{\dummytxta\dummytxtb\dummytxtc}
+
+\chapter{Introduction}
+\label{ch:introduction}
+%In this chapter, we present the motivation of this dissertation (Section\ref{sec:motivacao}). We then state the problem and provide an overview of our solution (Section \ref{sec:approach}). Finally, we present the outline of the dissertation (Section \ref{sec:outline}) and our publications (Section \ref{sec:publications}).
+
+The increasing demand for larger and more complex software systems requires the use of existing software artifacts~\citep{Pohl:2005}. In this context, software reuse is a development technique in which previously implemented software components, are used in the development of new software systems~\citep{krueger1992software}. Reuse has been studied and indicated as an alternative to the traditional software development aiming to increase software quality and decrease development efforts by using existing, and sometimes tested, software components~\citep{mohagheghi2007quality,morisio:2002,ravichandran2003software}.
+
+Methods for identification of reuse opportunities are essential to support the building of repositories of reuse opportunities~\citep{guo2000survey}. These methods may be used in different contexts related to software developement, including the support of feature identification  for a software product line~\citep{lee2004feature}, for instance. Many methods have been proposed in the literature to support the identification  of reuse opportunities from software systems~\citep{caldiera1991identifying,Kawaguchi2004,Kuhn:2007,maarek1991information,Ye:2005}. However, to the best of our knowledge, we did not find a method able to identify reuse opportunities from several systems, considering most frequent entities such as classes and methods from systems of a single domain.
+
+
+\begin{comment}
+
+In this dissertation, we propose a method for identification  of reuse opportunities called JReuse. Considering a set of software systems, JReuse aims to identify similarly named classes and methods from the systems based on lexical analysis. From the most frequent classes, JReuse analyzes the methods of these classes to identify similarly named methods. The dissertation also presents a prototype tool that supports the proposed method. JReuse provides a list of classes and methods recommended as reuse opportunities. This list may guide developers in the use of existing entities that are common in systems from a given domain. %For this purpose, JReuse presents the absolute path of the class recommended for reuse.
+
+\newpage
+We conducted an evaluation of our method in two steps.  First, we performed an empirical study conducted in controlled environment with 72 software systems. These systems were collected from GitHub and belong to four different software domains: accounting, restaurant, hospital, and e-commerce. Second, we conducted  a survey with experienced developers from two of the four domains, namely, e-commerce and hospital. We evaluated only these two domains because of the low percentage of responses for the other domains. With respect to the first step, we we observe that JReuse is able to identify reuse opportunities using naming similarity analysis for classes and methods. Regarding the second step, participants from the survey agree that JReuse provides relevant classes for the analyzed domains as reuse opportunities.
+\end{comment}
+
+\section{Motivation}
+\label{sec:motivacao}
+
+To support software reuse, developers need first to find the relevant source code fragments to be reused. For instance, a code fragment may be relevant as a reuse opportunity because of its efficient in terms of performance. Other reason to reuse a fragment is it quality because, in general, existing code have been submitted to spection and testing. Finally, by reusing existing fragments, developers may decrease development efforts and, then, increase their productivity.
+
+Since software systems have been increasing and evolving along the years, to identify frequent source code fragments with a particular functionality may be difficult. That is, because of significant number of classes, methods, and lines of code in these systems, the identification of reuse opportunities is a hard task. In this context, automated analysis and identification of reuse opportunities are useful to minimize costs~\citep{Ye:2002}.
+
+In addition, one of the current drawbacks in the software reuse process is the classification of the most frequent reuse opportunities from a set of software systems. Since many opportunities may be identified, it is important to recommend the most appropriate for reuse to developers, given a domain. For this purpose, some studies have proposed supporting techniques~\citep{caldiera1991identifying,Ye:2005}.
+
+Previous work in literature proposed methods to support the identification of reuse opportunities in software systems. These methods apply different techniques for source code analysis, such as natural-language processing~\citep{maarek1991information}, formal specifications~\citep{caldiera1991identifying}, machine learning~\citep{Kawaguchi2004}, and other Information Retrieval techniques~\citep{Kuhn:2007,Ye:2005}. However, to the best of our knowledge, we did not find a method able to: (i) identify reuse opportunities, (ii) recommend the reuse opportunities identified, and (iii) show the name and the location of the main entities identified as reuse opportunities, given a set of systems (design partial). %All the steps previously presented are performed considering the most frequent entities, such as classes and methods from a set of systems.
+
+
+
+
+
+%O uso de   artefatos de software em vários projetos, é uma estratégia necessária para melhorar a eficiência no processo de desenvolvimento de software, além de aumentar a qualidade dos sistemas de software desenvolvidos. Os desenvolvedores possuem acesso ao código fonte que pode ser modificado para atender as novas necessidades de um projeto.  %A abordagem referente à modificação do código fonte é normalmente referida na literatura como white-box reuse [ref]. O obstáculo do processo de reutilização compreende na dificuldade em preencher e gerir um repositório de componentes reutilizáveis ~\citep{Ye:2002}. As adversidades, estão   associadas a classificação e recuperação desses componentes reutilizáveis a partir de software já existentes.  There are different approaches used by proposed methods to identify reuse opportunities, such as natural-language processing~\citep{maarek1991information}, formal specifications~\citep{caldiera1991identifying}, machine learning~\citep{Kawaguchi2004}, and other Information Retrieval (IR) approaches~\citep{Kuhn:2007,Ye:2005}. However, to the best of our knowledge, we did not find a method for extraction of reuse opportunities and reuse recommendation considering most frequent elements such as classes and methods from systems of a single domain.
+
+\section{Proposed Work}
+\label{sec:proposedWork}
+
+%In order to provide automated support to help developers identify reuse opportunities, we developed the method called JReuse. This method  is composed for 2 steps. First,  the method JReuse analyzes name of the class and  compares with all other class for identify entities   as similar names. Second, from  of the classes identified  in the previous step,  JReuse analyzes these  entities for identify the  main  methods as reuse opportunities.  JReuse  was designed to analyze the systems independent domain and size.  JReuse was projected to meet exclusively the programming paradigm object-oriented. However, the  tool that supports the JReuse method is dependent on the programming language Java, since tool  functions depends  of the Java Parser.
+
+During the software development, the reuse of existing artifacts is an attractive way to reduce development costs and time-to-market and improve the software quality~\citep{mohagheghi2007quality}.  Source code is the artifact most commonly reused in software development~\citep{morisio:2002}.  However, to identify the reuse opportunities in large systems, and even in small systems, is a far from trivial task.
+
+%In order to provide automated support to help developers in identifying reuse opportunities, we developed the method called JReuse.  The proposed method performs a source code analysis, to identify, an opportunistic reuse without standardization and management of reusable artifacts. The opportunistic reuse have been reported as the more common reuse approach~\citep{mohagheghi2007quality,rine2000}. It occurs when a developer needs a specific source code fragment and, then, this fragment is searched in the systems to be reused. 
+
+In this dissertation, we propose a method for identification  of reuse opportunities called JReuse. Considering a set of software systems, JReuse aims to identify similarly named classes and methods from the systems based on lexical analysis. From the most frequent classes, JReuse analyzes the methods of these classes to identify similarly named methods. The dissertation also presents a prototype tool that supports the proposed method. JReuse provides a list of classes and methods recommended as reuse opportunities. This list may guide developers in the use of existing entities that are common in systems from a given domain. %For this purpose, JReuse presents the absolute path of the class recommended for reuse.
+
+JReuse performs the identification of reuse opportunities in two well-defined steps. First, given a set of systems from the same domain, the proposed method analyzes similarly named classes to identity the most frequent classes. Second, from the classes identified in the previous step, JReuse analyzes similarly named methods to identify the most frequent ones. Our method has been designed to analyze object-oriented software systems, independent of size, and applicable to different domains. The proposed method can be used to provide support to identify opportunities of software reuse. In addition, the method was built to guide users through partial design in the development of new software systems, showing the most frequent entities.
+
+
+We conducted an evaluation of our method in two steps.  First, we performed an empirical study conducted in controlled environment with 72 software systems. These systems were collected from GitHub and belong to four different software domains: accounting, restaurant, hospital, and e-commerce. Second, we conducted  a survey with experienced developers from two of the four domains, namely e-commerce and hospital. We evaluated only these two domains because of the low percentage of responses for the other domains. With respect to the first evaluation, we  observed that JReuse is able to identify reuse opportunities using naming similarity analysis for classes and methods. Regarding the second evaluation, participants from the survey agree that JReuse provides classes for the analyzed domains as reuse opportunities.
+
+%However, the  tool that supports the JReuse method is dependent on the programming language Java, since tool  functions depends  of the Java Parser.
+
+
+
+\section{Publications}
+\label{sec:publications}
+
+This dissertation generated the following publications and, therefore, it contains resources from them.
+
+\begin{comment}
+
+
+\begin{itemize}
+%\item \bibentry{Kawaguchi2004} (\textbf{\emph{best paper}})
+\item Johnatan A. de Oliveira, Eduardo M. Fernandes, and Eduardo Figueiredo. Evaluation of duplicated code detection tools in cross-project context. In VI Brazilian Conference on Software:Theory and Practice, III Workshop de Visualização, Evolução e Manutenção de Software (VEM), pages 49-56, 2015. 
+
+\item Johnatan Oliveira, Eduardo Fernandes, Maurício Souza and  Eduardo Figueiredo. A Method Based on Naming Similarity to Identify Reuse Opportunities. In XII Brazilian Symposium on Information Systems (SBSI),  pages 305-312, 2016 (\textit{best paper}).
+
+\item Johnatan Oliveira, Eduardo Figueiredo. A Recommendation System of Reuse Opportunities based on Lexical Analysis. In XII Brazilian Symposium on Information Systems (SBSI), Workshop of Theses and Dissertations in Information Systems (WTDSI), pages 49-51, 2016
+
+\item Johnatan Oliveira, Eduardo Fernandes, Maurício Souza and  Eduardo Figueiredo. JReuse: A Tool to Support Reusable Asset Extraction in Java Projects. In VII Brazilian Conference on Software:Theory and Practice, Tools Section (...)  %pages 1–8, 2014. (Under submission).
+
+\end{itemize}
+\end{comment}
+
+
+\begin{itemize}
+%\item Oliveira, J. A., Fernandes, E. M., Souza, M., and  Figueiredo, E. (2016). JReuse: A Tool to Support Reusable Asset Extraction in Java Projects. \textit{In VII Brazilian Conference on Software:Theory and Practice, Tools Section (...)}
+\item \bibentry{SBSI:johnatan} (\textbf{\emph{best paper}}) 
+\item \bibentry{WTDSI:johnatan}
+\item \bibentry{VEM:johnatan} 
+\end{itemize}
+
+
+\section{Thesis Outline}
+\label{sec:outline}
+
+Chapter 2 provides the essential concepts related to the research. Chapters 2, 3 and 4 presents investigations on the use of specific learning methods in software engineering education. Chapter 5 delineates the initial documentation of the framework proposed din this thesis project. The details on each chapter is rpesented as follows:\\
+
+\noindent
+\textbf{Chapter~\ref{ch:background}} presents background information to support the comprehension of this dissertation. It includes the main concepts related to the study, such as software reuse and reuse techniques. We also discuss related work.\\
+
+\noindent
+\textbf{Chapter~\ref{ch:approach}} describes JReuse, a method proposed for identification of reuse opportunities using lexical analysis. We presents the similarity analysis computation used by our method, the method steps, and a supporting tool that implements the method.\\
+
+\noindent
+\textbf{Chapter~\ref{ch:evaluation}} provides an evaluation of the proposed method. This evaluation consists of an empirical study conducted in controlled environment. We present the study design and the main results we obtained by analyzing 72 systems from four different domains: accounting, restaurant, hospital, and e-commerce.\\
+
+\noindent
+\textbf{Chapter~\ref{ch:survey}} presents a survey conducted with experienced software developers for two of the four domains analyzed in Chapter~\ref{ch:evaluation}. We discuss the main obtained results.\\
+
+\noindent
+\textbf{Chapter~\ref{ch:conclusion}} concludes the dissertation with a discussion regarding the proposed method and its applications to the identification of reuse opportunities. We summarize the contributions of the study, and suggestions for future work.

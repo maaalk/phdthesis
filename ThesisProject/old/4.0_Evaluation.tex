@@ -1,0 +1,542 @@
+\chapter{Method Evaluation}
+\label{ch:evaluation}
+
+%This chapter describes the evaluation of the proposed method for extraction of reuse opportunities, through an exploratory study conducted in controlled environment. Section~\ref{ch4sec:rq} presents the study goal the research questions we designed to guide our study. Section~\ref{ch4sec:dataSet} describes the data set used to evaluate our method through a prototype tool called JReuse. Section~\ref{ch4sec:evaluationSetup} presents the steps adopted to evaluate our method proposed. Section~\ref{chsec:results} presents the results of the exploratory study with JReuse. Section 4.5 provides an overview and discusses the main lessons learned. Section~\ref{sec:tv} presents threats to the validity of our study. Finally, we conclude this chapter with final remarks in Section~\ref{sec:finalRemarks}
+
+This chapter describes an evaluation adopted for analyzed the method proposed and presented in Chapter~\ref{ch:approach}. We conducted an empirical evaluation through   study exploratory conducted in environment controlled. To perform the evaluation, we adopted the guidelines based on~\cite{wohlin2012experimentation}, for this type of evaluation in Software Engineering.  The focus of our method is identify the main reuse opportunities in systems of software. Therefore, evaluation consists in analyze the reuse opportunities identified by our method JReuse.  
+
+We organized the remainder of this chapter as follows. Section~\ref{ch4sec:rq} presents the study goal and the research questions we designed to guide our study. Section~\ref{ch4sec:dataSet} describes the data set used to evaluate our method and the prototype tool, both called JReuse. Section~\ref{ch4sec:evaluationSetup} presents the steps adopted in the evaluation. Section~\ref{chsec:resultsClass} presents the results of the evaluation of the classes identified as reuse opportunities. Section~\ref{chsec:resultsMethods} presents the results of the evaluation of the methods identified as reuse opportunities from the classs identified previously. Section~\ref{sec:lessons} provides an overview and discusses the main lessons learned. Section~\ref{sec:tv} presents threats to the validity of our study. Finally, Section~\ref{sec:finalRemarks} concludes this chapter with final remarks.
+
+
+\section{Goal and Research Questions}
+\label{ch4sec:rq}
+
+ 
+
+In this study, we aim to assess whether JReuse is able to identify frequent classes and methods in a specific software domain. We are also interested  in assessing the relevance of the results provided by our method. For this purpose, we chose four domains to be evaluated: accounting, hospital, restaurant, and e-commerce. We also formulated the two  research questions (RQs) to guide our study.
+
+\begin{itemize}
+	\item[RQ1] \textit{What are the most frequent classes in  software systems for each selected domain? And how are they distributed through systems?}
+	\item[RQ2] \textit{What are the most frequent methods in the  classes identified by the method? And how are they distributed through these classes?}
+\end{itemize}
+
+Through \textit{RQ1} and \textit{RQ2} , we are interested in investigating whether the most frequent identified classes and methods  are indicated for software systems for the respective domain. We expect that JReuse is able to provide a list of classes and methods whose recommendations for reuse are relevant for the respective domains.
+
+
+
+\section{Data Set}
+\label{ch4sec:dataSet}
+
+To evaluate our method, we chose only systems from the domain of accounting, hospital, restaurant, and e-commerce, for  several reasons. First, software systems from these domains encompass several business features, such as user personnel, financial, product, and service management. Second, there is a significant number of domain systems available  for download  in GitHub\footnote{https://github.com/}. Third, from the viewpoint of the authors, the four domains we chose are well-defined in terms of requirements and we believe that it would be possible to find reuse opportunities among systems of these domains.
+
+The systems that compose our data set were extracted from GitHub repositories. We performed the selection of systems for the e-commerce domain in January 2015 and in May 2016 for the other domains. We selected software systems are based on the ranking of starred systems and system length in terms of storage space. In GitHub, stars are a meaningful measure for repository popularity among the platform users, and may be used to support the selection of systems.
+
+
+There is a diverse terminology to represent a same software domain. For instance, we may refer to the \textit{e-commerce} domain as \textit{ecommerce}, without hyphenation. In order to support the collection of software systems to compose our data set, we developed an algorithm to clone GitHub repositories individually, with the respective systems, based on a well-defined search string for each domain under analysis in this study. Since the goal of our study is to identify reuse opportunities from different software systems, given large system sets per domain, we defined the following search strings.
+
+%\textcolor{red}{These search strings were designed based in empirical studies to identify representative software projects in numbers of classes and methods. The target repository of source code  for this analysis was the GitHub.}
+
+\begin{center}
+For e-commerce: \textit{e-commerce} OR \textit{ecommerce} OR \textit{electronic commerce}
+
+For restaurant: \textit{restaurant} OR \textit{eatery} OR \textit{restaurants}
+
+For hospital: \textit{hospital} OR \textit{infirmary} OR  \textit{lazaretto}
+
+For accountancy:  \textit{accountancy} OR \textit{accounting}
+\end{center}
+
+
+%To retrieve information systems, we used the following keywords related to the e-commerce domain: \textit{e-commerce}, \textit{ecommerce}, \textit{electronic commerce}, \textit{e-business}, \textit{business}, and \textit{electronic commerce}.
+
+
+%the set of evaluated systems may be seen in
+
+Table~\ref{table:filtersDataset} presents the exclusion criteria applied in the selected systems. First, we collected 400 Java systems from GitHub, 100 for each domain in order descending sorted by stars. Then, we discarded systems according to the following exclusion criteria: (i) non-Java software systems, since GitHub do not verify automatically the main programming languages of the systems, (ii) Java projects developed for Android platform, because Android systems tend to have a different architectural design and code implementation when compared with traditional Java systems, (iii) systems with less than 1,000 lines of code (LOC), and (iv) systems written in other languages rather than English, since our method relies on a lexical similarity technique and, then, natural language may impact significantly the results provided by our method. 
+
+\begin{table}[!h]
+\centering
+\caption{Filters that were applied to the data set}
+\label{table:filtersDataset}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\cellcolor[HTML]{EFEFEF}                                   & \multicolumn{3}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Excluded Systems by}}                                                                                                                                      & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}}                                                                                       \\ \cline{2-4}
+\rowcolor[HTML]{EFEFEF} 
+\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\textbf{Domains}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{Not English}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{Less than 1,000 LOC}} & \multicolumn{1}{l|}{\cellcolor[HTML]{EFEFEF}\textbf{Android}} & \multicolumn{1}{l|}{\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\textbf{\begin{tabular}[c]{@{}l@{}}Selected \\ Systems\end{tabular}}}} \\ \hline
+Accounting                                                 & 9                                                                 & 49                                                                        & 31                                                            & 11                                                                                                                                  \\ \hline
+Restaurant                                                 & 3                                                                 & 56                                                                        & 28                                                            & 13                                                                                                                                  \\ \hline
+Hospital                                                   & 16                                                                & 37                                                                        & 34                                                            & 13                                                                                                                                  \\ \hline
+E-commerce                                                 & 21                                                                & 40                                                                        & 4                                                             & 35                                                                                                                                  \\ \hline
+\end{tabular}
+\end{table}
+
+
+For each selected system, we considered only the last release. This process was necessary to discard different versions of the same system, which probably contain lots of similarly named classes and methods. Finally, we obtained in $72$ Java systems for evaluation of the JReuse method. 
+
+To better characterize systems in the four  domains,  Figures~\ref{fig:loc},~\ref{fig:noc}, and~\ref{fig:nom} presents software metrics for systems per domain: lines of code (LOC), number of classes (NOC), and number of methods (NOM), respectively. We plotted  twelve boxplots, one for each metric. However, because of the heterogeneity of the sample of our data set, we decided to eliminate ''outliers'' for each metric. Therefore, all boxplots presented a brief overview of each analyzed domain. %However, the similarity analysis identifies reuse opportunities throughout the  date set.
+
+%Tables~\ref{tab:loc-descriptive},~\ref{tb:noc}, and ~\ref{tb:nom} provides descriptive analysis with respect to the boxplots for the respective figures. 
+
+%\newpage
+Let's consider Figure~\ref{fig:loc} in the following analysis of LOC. With respect to the accounting domain, we observe that the mean of LOC for the systems is 8,690. Moreover, the median is 5,112, i.e., half of the accounting systems has at least 4 KLOC. That is, a significant number for analysis and identification of reuse opportunities. Regarding the restaurant domain, the mean of LOC is 3,447. In addition, the median is 3,256. Again, we conclude that these systems have a significant LOC for analysis. For the hospital domain, the mean is 4,964 and the median is 2,534 of LOC. Although these values are smaller than the obtained values for the other domains, it remains significant for the study. Finally, with respect to the e-commerce domain, we observe a mean LOC of 46,100 and a median of 3,730. In general, systems from this domain have the highest numbers of LOC and, therefore, they may have several reuse opportunities.
+
+
+
+\begin{figure}[!h]%th
+\centering
+\includegraphics[width=0.6\textwidth]{img/LOC.jpg}
+\caption{LOC of Sytems per Domain}
+\label{fig:loc}
+\end{figure} 
+
+
+
+%\newpage
+Let us consider Figure~\ref{fig:noc} in the following analysis of NOC. With respect to the accounting domain, note that the mean of NOC for the systems is 35.73. Furthermore, the median is 18, i.e., half of the accounting systems has at least 18 classes. This number is significant for analysis because we are interested in finding  similarly named classes within a pairwise comparison. Therefore, we expect a comparison of $18 * 18 = 324$ pairs that may be reuse opportunities. Regarding the restaurant domain, the mean of NOC is 37.23. In addition, the median is 40. Again, we conclude that these systems have a significant NOC for analysis. For the hospital domain, the mean is 33.85 and the median is 25 of NOC. Finally, with respect to the e-commerce domain, we observe a mean NOC of 368.9 and a median of 45.5. In general, systems from this domain has the highest numbers of NOC and, therefore, there is a significant possibility of identifying reuse opportunities.
+
+\begin{figure}[!h]%th
+\centering
+\includegraphics[width=0.6\textwidth]{img/NOC.jpg}
+\caption{NOC of Sytems per Domain}
+\label{fig:noc}
+\end{figure} 
+
+%\newpage
+Based in Figure~\ref{fig:nom}, we discuss some observations as follows. With respect to systems from the accounting domain, we have a mean NOM of 263.6. In addition, the median is 196, i.e., half of the systems has at least 196 methods. That is, a significant number for analysis and extraction of reuse opportunities. This number is significant because we compute similarly named methods in pairs. Therefore, we expect a comparison of $196 * 196 = 38,416$ pairs that may be identified as reuse opportunities. Considering the restaurant domain, the mean of NOM is 162.4 and the median is 159. Again, we conclude that these system have a significant NOM for analysis. For the hospital domain, the mean is 192.2 and the median is 90 methods. At last, with respect to the e-commerce domain, we observe a mean NOM of 1,683 and a median of 175.5. That is, the highest number of methods for analysis considering the four  selected domains.
+
+\begin{figure}[!h]%th
+\centering
+\includegraphics[width=0.6\textwidth]{img/NOM.jpg}
+\caption{NOM of Sytems per Domain}
+\label{fig:nom}
+\end{figure} 
+
+
+
+
+
+\section{Evaluation Steps}
+\label{ch4sec:evaluationSetup}
+
+Figure~\ref{fig:fig1} presents the three study steps we followed to investigate the research questions described in Section~\ref{ch4sec:rq}. Each step is described as below.
+%\newpage
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.9\textwidth]{img/steps.jpg}
+\caption{Designed an Exploratory Study}
+\label{fig:fig1}
+\end{figure} 
+
+
+
+\noindent
+\textbf{Step 1: Automated Search --} By using the search strings described in Section~\ref{ch4sec:dataSet}, we cloned from GitHub several software systems, belonging to different domains. We intended to identify appropriate domains to be analyzed in our exploratory study. For this purpose, we considered a domain as appropriate when, from our viewpoint, systems from the given domain contain a significant number of classes and methods for analysis. After performing the search for systems, with support of our algorithm, we obtained 400 software systems from four distinct domains: accounting, restaurant, hospital, and e-commerce. \\
+
+\noindent
+\textbf{Step 2:  Exclusion Criteria --} By applying a set of exclusion criteria defined by the authors, we select the systems according to with the following requirements: (i) software systems written only in English, (ii) software systems with more than 1,000 lines of source code, and (iii) traditional Java software systems, i.e, software that are not exclusive to the Android platform. After applying the exclusion criteria, 72 different software systems remained for analysis.\\
+
+
+\noindent
+\textbf{Step 3: Detection of Similarly Named Classes --} We executed the JReuse prototype tool for the 72 collected systems. Per domain, the respective systems were submitted to JReuse for extraction of reuse opportunities. After the automated analysis for each domain, JReuse provided a list with the most frequent classes that occur in the given domain. \\
+
+
+\noindent
+\textbf{Step 4: Detection of Similarly Named Methods --} We also executed the JReuse prototype tool  to identify similarly named methods.  From the classes identified as reuse opportunity in Step 3, JReuse identified similar methods among these classes. In the previous step, JReuse provided most frequent classes per domain, as well as a list of classes, sorted by relevance, with the main classes identified as reuse opportunities. In this step, JReuse complements such list with methods identified as reuse opportunities. That is, the previously obtained list of reuse opportunities is completed with the most frequent  methods for the identified classes.
+
+
+\section{Results of Frequent Classes}
+\label{chsec:resultsClass}
+
+This section presents and discusses the study results aiming to answer our first research question. For this question, we discuss the results obtained with respect to the four domains under analysis: accounting, restaurant, hospital, and e-commerce.
+
+\begin{itemize}
+   	\item[RQ1] \textit{What are the most frequent classes in  software systems for each selected domain? And how are they distributed through systems?}
+\end{itemize}
+
+In this study, we analyzed the frequency of similarly named classes for the systems of each domain. Table~\ref{domain} presents software metrics for systems per domain: lines of code (LOC), number of classes (NOC), and number of methods (NOM). This table categorizes NOC and NOM in two types: (i) \textit{analyzed}, i.e., the number of entities analyzed by the tool and (ii) \textit{recommended}, that is, entities identified by the tool as reuse opportunities. 
+
+In general, from Table~\ref{domain} we observe that JReuse identified a smaller number of methods than classes as reuse opportunities. For instance, for domain e-commerce, JReuse identified 75 classes and 28 methods as reuse opportunities. One of the reasons for this results is that the similarity computation of JReuse for methods is more strict than for classes. Thus, the proposed method aims to avoid the recommendation of methods with similar names but different responsibilities. For this purpose, JReuse compares the return type of similarly named methods. As an example, if a pair of similar methods has the same return type, then they are considered as the same reuse opportunities. Otherwise, both methods are considered different.
+
+\begin{table}[!h]
+\centering
+\caption{Software metrics for systems from each domain}
+\scriptsize
+\label{domain}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}}                                   & \cellcolor[HTML]{EFEFEF}                                   & \cellcolor[HTML]{EFEFEF}                               & \multicolumn{2}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{NOC}}                            & \multicolumn{2}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{NOM}}                            \\ \cline{4-7} 
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\textbf{Domains}}} & \multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\textbf{Systems}} & \multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\textbf{LOC}} & \textbf{Analyzed} & \textbf{\begin{tabular}[c]{@{}c@{}}Recom-\\ mended\end{tabular}} & \textbf{Analyzed} & \textbf{\begin{tabular}[c]{@{}c@{}}Recom-\\ mended\end{tabular}} \\ \hline
+Accounting                                                                       & 11                                                         & 95,588                                                 & 493               & 25                                                               & 2,900             & 21                                                               \\ \hline
+Restaurant                                                                       & 13                                                         & 44,813                                                 & 484               & 17                                                               & 2,111             & 20                                                               \\ \hline
+Hospital                                                                         & 13                                                         & 65,297                                                 & 446               & 21                                                               & 2,516             & 20                                                               \\ \hline
+E-commerce                                                                       & 35                                                         & 1,567.337                                              & 12,598            & 75                                                               & 57,017            & 28                                                               \\ \hline
+\end{tabular}
+\end{table}
+
+In order to present and discuss the most frequent classes extracted as reuse opportunities, we considered the following exclusion criteria of classes. For each domain, we discarded classes that occur in a maximum of two different systems. This decision was taken because our method compares classes in pairs and, then, 3 occurrences may not be significant to a reuse recommendation. We selected the top-ten most frequent classes of each domain, as presented in Figures 4.3, 4.4, 4.5, and 4.6. We submitted the list of most frequent entities to a group of 4 researchers at Software Engineering Laboratory (LabSoft) from Federal University of Minas Gerais (UFMG), for validation of the entities with respect to relevance. 
+
+%Tables~\ref{tab:ocaccounting}, \ref{tab:ocrestaurant}, \ref{tab:ochospital}, and~\ref{tab:ocecommerce} present classes identified as reuse opportunities for e-commerce, accounting, restaurant, and hospital, respectively. We selected only the classes with at least 3 occurrences in the systems of the respective domain. \textcolor{red}{All tables have two symbols: (i) the field (\checkmark) indicates that the focus group agreed that the class is relevant for domain under analysis and (ii) otherwise, i.e., the focus group does not agree with the importance of the class for domain, then, is indicated in the table the field (\xmark). In addition, the tables may contain a blank (Unconfirmed), in this case the focal group did not have opinion on the entity.}
+
+
+Tables~\ref{tab:ocaccounting}, \ref{tab:ocrestaurant}, \ref{tab:ochospital}, and~\ref{tab:ocecommerce} present classes identified as reuse opportunities for e-commerce, accounting, restaurant, and hospital, respectively. We selected only the classes with at least 15\%~\footnote{The percentage is arbitrary, i.e. can be adapted for domains with more or with less systems for analysis.} occurrences in the systems of the respective domain. Each table has a ``Domain-Specific'' field. This field indicates the viewpoint of the focal group regarding a given entity to be specific for the analyzed domain. The focal group's viewpoint is represented by three symbols in table: (i) the (\checkmark) symbol indicates that the focal group agreed that the class is  specific for the domain under analysis, (ii) the (\xmark) symbol indicates that the focal group disagreed that the class is indicated for the domain, and (iii) blank field (Unconfirmed) indicates that the focal group did not converge to a specific opinion on the class. Moreover, each table has a ``Labels'' filed to inform the level of relevance of the entity identified by JReuse as reuse opportunity.
+
+
+\paragraph{Scale to Indicate the Level of Relevance of the Entities Identified.}  To support the identification of the most recommended classes and methods for each domain, Figure~\ref{fig:scaleClass} shows a scale from $0\%$ to $100\%$ that represents the level of relevance to recommend an entity based on frequency of classes and methods identified as reuse opportunity. The thresholds $0\%$ and $50\%$ determine two labels for level of relevance, namely \textit{weak} and \textit{strong}. The \textit{weak} label (from 0\% to 50\%) indicates that the class is weakly or moderately recommended as reuse given a domain. Finally, the \textit{strong} label (from 50\% to 100\%) indicates that the class is highly recommended as reuse.
+
+\begin{figure}[!h]%th
+\centering
+\includegraphics[width=0.6\textwidth]{img/scale.png}
+\caption{Scale of relevance to entity identified as reuse opportunity}
+\label{fig:scaleClass}
+\end{figure} 
+
+%\newpage
+%With respect to the accounting domain, presented in  Table~\ref{tab:ocaccounting}. For this domain, the classes from \texttt{Users} to \texttt{TransactionManager} belong to the \textit{strong} label and, therefore, they are the highly recommended classes for accounting systems. Moreover, the classes from \texttt{AccountsPayable} to \texttt{RawMaterial} belong to the \textit{medium} label. The remainder classes have exactly 2 occurrences in different systems from the accounting domain. Therefore, they are weakly recommended and were omitted from this table.
+
+With respect to the accounting domain, presented in  Table~\ref{tab:ocaccounting}. For this domain, the classes from \texttt{Users} to \texttt{TransactionManager} belong to the \textit{strong} label and, therefore, they are the highly recommended classes for accounting systems. Note that, in the other hand, the focal group did not consider the classes \texttt{Users}, \texttt{DatabaseConnection}, and \texttt{Util} as specific classes for the accounting domain. In addition, the classes from \texttt{AddFinancialsAction} to \texttt{RawMaterial} belong to the \textit{weak} label. The remainder classes have exactly 2 or 3 occurrences in different systems from the accounting domain. Therefore, they are weakly recommended and were omitted from this table.
+
+\begin{table}[!h]
+\centering
+\scriptsize
+\caption{Classes with at least 15\% occurrences in the accounting domain}
+\label{tab:ocaccounting}
+\begin{tabular}{|l|l|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Labels}} & \multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Classes}} & \textbf{Frequency} & \textbf{\% of systems} & \textbf{\begin{tabular}[c]{@{}c@{}}Domain\\ Specific\end{tabular}} \\ \hline
+                                                              & Users                                                         & 13                 & 100\%                  & \xmark                                                             \\ \cline{2-5} 
+                                                              & DatabaseConnection                                            & 13                 & 100\%                  & \xmark                                                             \\ \cline{2-5} 
+                                                              & CashFlow                                                      & 11                 & 85\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & Util                                                          & 10                 & 77\%                   & \xmark                                                             \\ \cline{2-5} 
+                                                              & BalancesAssets                                                & 9                  & 69\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & CashBanks                                                     & 9                  & 69\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & ShareholderEquity                                             & 9                  & 69\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & BalancesLiabilities                                           & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & ChartAccounts                                                 & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & AccountingMovement                                            & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & AccountsReceivable                                            & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & AccountsPayable                                               & 6                  & 46\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & Transactions                                                  & 7                  & 54\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & Log                                                           & 7                  & 54\%                   & \xmark                                                             \\ \cline{2-5} 
+                                                              & FinancialReportsPoeHelper                                     & 7                  & 54\%                   & \xmark                                                             \\ \cline{2-5} 
+                                                              & InventoryManager                                              & 7                  & 54\%                   & \checkmark                                                         \\ \cline{2-5} 
+\multirow{-17}{*}{Strong}                                     & TransactionManager                                            & 7                  & 54\%                   & \checkmark                                                         \\ \hline
+                                                              & AddFinancialsAction                                           & 6                  & 46\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & Accounts                                                      & 6                  & 46\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & FeaturesAnalysis                                              & 6                  & 46\%                   & \checkmark                                                         \\ \cline{2-5} 
+\multirow{-4}{*}{Weak}                                        & RawMaterial                                                   & 6                  & 46\%                   & \checkmark                                                         \\ \hline
+\end{tabular}
+\end{table}
+
+
+%Key: Agree (\checkmark) and Disagree (\xmark)\\
+
+\begin{adjustwidth}{1.6cm}{0cm}
+Key: Agree (\checkmark) and Disagree (\xmark)\\
+\end{adjustwidth}
+
+%\newpage
+Regarding accounting domain, Figure~\ref{fig:accounting} presents the top-ten most frequent classes for this domain, with the highest occurrence. Classes are sorted by frequency: \texttt{Users}, \texttt{DatabaseConnection}, \texttt{CashFlow}, \texttt{Util}, \texttt{BalancesAssets}, \texttt{CashBanks}, \texttt{ShareholderEquity}, \texttt{BalancesLiabilities}, \texttt{ChartAccounts}, and \texttt{AccountingMovement}. %According to the scale presented in Figure~\ref{fig:scaleClass}, the classes from \texttt{User} to \texttt{TransactionManager} belong to the \textit{strong} label. 
+We observe that, although only \texttt{CashFlow} is considered specific to the given domain, from the viewpoint of the focal group, all classes from this label are  meaningful in accounting systems. In turn, the remainder classes are from the \textit{medium} label. Among these classes, \texttt{CashBanks}, \texttt{Transaction}, and \texttt{Accounts} are considered specific, for instance.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/accounting.png}
+\caption{Distribution of frequent classes through accounting systems}
+\label{fig:accounting}
+\end{figure}
+
+
+\newpage
+With respect to the restaurant domain, let us consider Table~\ref{tab:ocrestaurant}. The classes \texttt{Login} and \texttt{User} belong to the \textit{strong} label. Note that they are not considered as specific classes from the given domain considering the focal group's viewpoint. However, they are relevant in restaurant systems. In addition, the classes from \texttt{Client} to \texttt{Order} belong to the \textit{strong} label and are relevants for this domain, considering the focal group's viewpoint. Many of them were pointed as reuse opportunities for restaurant systems by the focal group, such as \textit{RestaurantMenu}, \texttt{Delivery}, and \texttt{Customes}. Moreover,  this entities   belong to the \textit{weak}
+
+%With respect to the restaurant domain, let us consider Table~\ref{tab:ocrestaurant}. Only the classes \texttt{Login} and \texttt{Order} belong to the \textit{strong} label. Note that they are not considered as specific classes from the given domain considering the focal group's viewpoint. However, they are relevant in restaurant systems. In addition, the classes from \texttt{RestaurantMenu} to \texttt{Customer} belong to the \textit{medium} label. Many of them were pointed as relevant for restaurant systems by the focal group, such as \textit{Client}, \texttt{Dish}, and \texttt{Delivery}.
+
+\begin{table}[!h]
+\centering
+\scriptsize
+\caption{Classes with at least 15\% occurrences in the restaurant domain}
+\label{tab:ocrestaurant}
+\begin{tabular}{|l|l|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Labels}} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Classes}} & \textbf{Frequency} & \textbf{\% of systems} & \textbf{\begin{tabular}[c]{@{}c@{}}Domain\\ Specific\end{tabular}} \\ \hline
+                                                              & Login                                                         & 10                 & 77\%                   & \xmark                                                             \\ \cline{2-5} 
+                                                              & User                                                          & 10                 & 77\%                   & \xmark                                                             \\ \cline{2-5} 
+                                                              & ConnectionManager                                             & 9                  & 70\%                   & \xmark                                                             \\ \cline{2-5} 
+                                                              & Client                                                        & 9                  & 70\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & Table                                                         & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & PaymentType                                                   & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & Dish                                                          & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & Employee                                                      & 7                  & 54\%                   & \checkmark                                                         \\ \cline{2-5} 
+\multirow{-9}{*}{Strong}                                      & Order                                                         & 7                  & 54\%                   & \checkmark                                                         \\ \hline
+                                                              & RestaurantMenu                                                & 6                  & 47\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & Delivery                                                      & 6                  & 47\%                   & \checkmark                                                         \\ \cline{2-5} 
+                                                              & ItemOrdered                                                   & 6                  & 47\%                   & \checkmark                                                         \\ \cline{2-5} 
+\multirow{-4}{*}{Weak}                                        & Customer                                                      & 4                  & 31\%                   & \checkmark                                                         \\ \hline
+\end{tabular}
+\end{table}
+
+%Key: Agree (\checkmark) and Disagree (\xmark)
+
+\begin{adjustwidth}{2.1cm}{0cm}
+Key: Agree (\checkmark) and Disagree (\xmark)\\
+\end{adjustwidth}
+
+%\newpage
+Regarding the analysis of the restaurant domain, Figure~\ref{fig:restaurant} presents the top-ten classes with higher occurrence, namely 
+\texttt{Login}, \texttt{User}, \texttt{ConnectionManager}, \texttt{Client}, \texttt{Table}, \texttt{PaymentType}, \texttt{Dish}, \texttt{Employee}, \texttt{Order}, and \texttt{RestaurantMenu}. These classes have an high to medium level for recommendation according to the scale from Figure~\ref{fig:scaleClass}. The classes with the highest occurrences in this domain are \texttt{Login} and \texttt{User}, respectively. Both are present in 77\% of the analyzed information systems. Nevertheless, they are not  specific classes of restaurant systems. However, JReuse identified some frequent classes such as \texttt{Client},  \texttt{Table}, \texttt{PaymentType}, and \texttt{Dish}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/restaurant.png}
+\caption{Distribution of frequent classes through restaurant systems}
+\label{fig:restaurant}
+\end{figure}
+
+
+
+%\newpage
+Consider Table~\ref{tab:ochospital} for analysis of the hospital domain. Observe that the classes from \texttt{Patient} to \texttt{Microbiology} belong to the \textit{strong} label and, therefore, they are highly recommended classes as reuse opportunities. Note that, from the viewpoint of the focal group, the three most frequent classes are considered specific from hospital systems. In fact, classes such as \texttt{Patient} and \texttt{Doctor} are meaningful in the given domain. In addition, classes from \texttt{PatientCondition} to \texttt{OperationsWithCards} are from the \textit{weak} label. Finally, the remainder classes have less than 10\% of the occurrences
+
+
+\begin{table}[!h]
+\centering
+\scriptsize
+\caption{Classes with at least 15\% occurrences in the hospital domain}
+\label{tab:ochospital}
+\begin{tabular}{|c|l|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\textbf{Label}            & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}\textbf{Classes}} & \textbf{Frequency} & \textbf{\% of systems} & \textbf{\begin{tabular}[c]{@{}c@{}}Domain\\ Specific\end{tabular}} \\ \hline
+                          & Patient                                                       & 13                 & 100\%                  & \checkmark                                                         \\ \cline{2-5} 
+                          & Doctor                                                        & 13                 & 100\%                  & \checkmark                                                         \\ \cline{2-5} 
+                          & Disease                                                       & 11                 & 85\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & User                                                          & 10                 & 77\%                   & \xmark                                                             \\ \cline{2-5} 
+                          & Login                                                         & 9                  & 69\%                   & \xmark                                                             \\ \cline{2-5} 
+                          & Diagnose                                                      & 9                  & 69\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & Symptoms                                                      & 9                  & 69\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & PatientDisease                                                & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & HealthPlan                                                    & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & Immunology                                                    & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & Haematology                                                   & 8                  & 62\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & Medication                                                    & 7                  & 54\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & Surgery                                                       & 7                  & 54\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & MedicalRecords                                                & 7                  & 54\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & TypePayment                                                   & 7                  & 54\%                   &                                                                    \\ \cline{2-5} 
+\multirow{-16}{*}{Strong} & Microbiology                                                  & 7                  & 54\%                   & \checkmark                                                         \\ \hline
+                          & PatientCondition                                              & 6                  & 46\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & LaboratoryExams                                               & 6                  & 46\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & Log                                                           & 6                  & 46\%                   & \xmark                                                             \\ \cline{2-5} 
+                          & HistoPathology                                                & 6                  & 46\%                   & \checkmark                                                         \\ \cline{2-5} 
+                          & Connection                                                    & 6                  & 46\%                   & \xmark                                                             \\ \cline{2-5} 
+                          & Paycash                                                       & 5                  & 38\%                   &                                                                    \\ \cline{2-5} 
+                          & Util                                                          & 5                  & 38\%                   & \xmark                                                             \\ \cline{2-5} 
+\multirow{-8}{*}{Weak}    & OperationsWithCards                                           & 3                  & 23\%                   &                                                                    \\ \hline
+\end{tabular}
+\end{table}
+
+\newpage
+Key: Agree (\checkmark), Disagree (\xmark), and Unconfirmed (field blank)\\
+
+
+Figure~\ref{fig:hospital} presents the most frequent classes identified for the hospital domain, in decreasing order of frequency. For the 13 systems we collected from this domain, JReuse extracted some relevant entities, such as \texttt{Patient},  \texttt{Doctor}, and \texttt{Disease}, from the focal group's point of view. The classes presented in this figure belong to the \textit{strong} label, as illustrated in Figure~\ref{fig:scaleClass}. Note that the classes \texttt{Patient} and \texttt{Doctor} are present in 100\% of the evaluated systems. Similarly to the other domains, JReuse identified some classes that are generic, such as \texttt{User} (77\%) class, that are expected in systems from other domains.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital.png}
+\caption{Distribution of frequent classes through hospital systems}
+\label{fig:hospital}
+\end{figure}
+
+\newpage
+Let us consider Table~\ref{tab:ocecommerce} regarding the e-commerce domain in the following discussion. Note that the classes  \texttt{Product} to \texttt{ClientDao} belong to the \textit{strong} label, according to Figure~\ref{fig:scaleClass}. That is, they are highly recommended classes for e-commerce systems, because they are present in more than 50\% of the analyzed systems. In addition, the classes  \texttt{Item} to \texttt{ShoppingCartService} are the weakly recommended classes. As aforementioned, classes with less than 15\% of the occurrences were omitted.
+
+\begin{table}[!h]
+\centering
+\caption{Classes with at least 15\% occurrences in the e-commerce domain}
+\scriptsize
+\label{tab:ocecommerce}
+\begin{tabular}{|l|l|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Labels}} & \multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Classes}} & \textbf{Frequency} & \textbf{\% of systems} & \textbf{\begin{tabular}[c]{@{}c@{}}Domain \\ Specific\end{tabular}} \\ \hline
+                                                              & Product                                                       & 28                 & 80\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & PaymentType                                                   & 24                 & 69\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & Client                                                        & 20                 & 58\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & ProductDao                                                    & 18                 & 52\%                   & \checkmark                                                          \\ \cline{2-5} 
+\multirow{-5}{*}{Strong}                                      & ClientDao                                                     & 18                 & 52\%                   & \checkmark                                                          \\ \hline
+                                                              & Item                                                          & 17                 & 49\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & ShoppingCart                                                  & 17                 & 49\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & User                                                          & 17                 & 49\%                   & \xmark                                                              \\ \cline{2-5} 
+                                                              & Customer                                                      & 14                 & 40\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & Category                                                      & 12                 & 35\%                   & \checkmark                                                          \\ \cline{2-5} 
+\multirow{4}{*}{Weak}                                         & ProductService                                                & 10                 & 29\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & Order                                                         & 9                  & 26\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & LoginController                                               & 7                  & 20\%                   & \xmark	                                                          \\ \cline{2-5} 
+                                                              & UserDao                                                       & 6                  & 18\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & ProductServiceImpl                                            & 6                  & 18\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & ShoppingCartController                                        & 6                  & 18\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & OrderedProduct                                                & 5                  & 15\%                   & \checkmark                                                          \\ \cline{2-5} 
+                                                              & ShoppingCartService                                           & 5                  & 15\%                   & \checkmark                                                          \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{adjustwidth}{1.8cm}{0cm}
+Key: Agree (\checkmark) and Disagree (\xmark)\\
+\end{adjustwidth}
+
+
+%\newpage
+Finally, Figure~\ref{fig:resultEcommerce} presents  the top-ten most frequent classes for e-commerce systems. We sorted the classes in decreasing order of frequency. The most frequent entities are, respectively, \texttt{Product}, \texttt{PaymentType}, \texttt{Client}, \texttt{ProductDao}, \texttt{ClientDao}, \texttt{Item}, \texttt{ShoppingCart}, \texttt{User}, \texttt{Customer}, and \texttt{Category}.
+Note that, according to the focal group the classes \texttt{Product}, \texttt{Payment}, \texttt{ShoppingCart}, \texttt{Customer}, and \texttt{Client} are elementary entities to be expected in an e-commerce system. In turn, although \texttt{User} is one of the most frequent classes identified by JReuse (49\% of the systems contain this class), \texttt{User} is not specific of the e-commerce domain. However, this entity is meaningful for information systems in general.
+
+
+\begin{figure}[!h]%th
+\centering
+\includegraphics[width=0.8\textwidth]{img/ecommerce.png}
+\caption{Distribution of frequent classes through e-commerce systems}
+\label{fig:resultEcommerce}
+\end{figure} 
+
+
+%\newpage
+\section{Results of Frequent Methods}
+\label{chsec:resultsMethods}
+
+This section presents and discusses the  results  for of the methods identified from of top-ten most frequent classes, presented in first research question.
+
+
+\begin{itemize}
+	\item[RQ2] \textit{What are the most frequent methods considering the similarly named classes identified by the method? And how are they distributed through these classes?}
+\end{itemize}
+
+Research question \textit{RQ2} is related to the extraction of similarly named methods from classes identified as reuse opportunities by JReuse. To summarize the data and present the principal methods of each domain, we adopted the following exclusion criteria. We discarded methods that does not appear in more than 2 classes from different systems. %Figures Presented below is the principal methods of each selected software from domain. 
+We discarded also methods named \texttt{main}, because  this type of method is essential in any \texttt{Java} system~\citep{Rountev}.
+
+
+To support a discussion of $RQ2$ for each domain under analysis, Tables~\ref{tbl:methodsEcommerce}, \ref{tab:metAccounting}, \ref{tb:restaurant}, and~\ref{tb:hospital} present the most frequent methods for the top-ten most frequent classes with respect to the accounting, restaurant, hospital, and e-commerce domain, respectively. %All tables are sorted as follows: (i) the tuples are classified in decreasing order according to the Max column, (ii) the  columns are  sorted in decreasing order in accordance with the Count line.
+To support the identification of the most frequent methods for each domain, we use the same labels presented in Section~\ref{chsec:resultsClass}. Each table is signed with two symbols: (i) the (\checkmark) symbol that indicates the focus group agreed that the method should belong to a given class and (ii)  the (\xmark) symbol that indicates the focus group disagree that a method belongs to a given class.
+
+%############### Accounting  #########################
+%\newpage
+
+Considering the accounting domain for analysis, Table~\ref{tab:metAccounting} presents the methods identified as reuse opportunity for the top-ten most frequent classes. The classes with at least $10$ methods identified as reuse opportunities are \texttt{AccountingMoviment} and \texttt{BalancesLiability}. They contain $13$ and $12$ identified methods, respectively. We observe that both are relevant in the accounting domain, from the viewpoint of the focal group. Through Table~\ref{tab:metAccounting}, we may observe methods that may be strongly recommended as reuse opportunities (see Figure~\ref{fig:scaleClass}). As as example, \texttt{calculatePayment} appears in $20$ \texttt{Product} classes, against $13$ and $11$ for \texttt{PaymentType}, and \texttt{ProductDao}, respectively. 
+
+\input{tableRQ2-Accounting}
+
+\newpage
+\noindent
+Key: Agree (\checkmark) and Disagree (\xmark)\\
+
+%############## Restaurant  #########################
+%\newpage
+For the restaurant domain, let us consider Table~\ref{tb:restaurant} with respect to the methods obtained from the top-ten most frequent classes. The classes \texttt{Table} and \texttt{Order} have at least $10$ methods identified as reuse opportunities, with $14$ and $13$ types of methods, respectively. As an example, note that the method \texttt{insertFood} is present in 63\% and 100\% of the classes \texttt{Table} and \texttt{Order}, respectively. These values belong to the \textit{strong} label in the scale from Figure~\ref{fig:scaleClass}. Methods such as \texttt{insertFood}, \texttt{generateBills}, and \texttt{cancelReservation} are relevant in restaurant systems, from the viewpoint of the focal group.
+
+
+\input{tableRQ2Restaurant}
+\newpage
+\noindent
+Key: Agree (\checkmark) and Disagree (\xmark)\\
+
+
+
+
+%###########################  Hospital  #########################
+
+%\newpage
+Table~\ref{tb:hospital} presents the methods obtained from the top-ten most frequent classes from  hospital domain. The classes with at least $10$ types methods identified as reuse opportunities are \texttt{Patient}, \texttt{Diagnose}, \texttt{Disease}, and \texttt{PatientDisease}. They have $16$, $11$, $10$, and $10$ identified methods, respectively. Methods such as \texttt{verifyPathology}, \texttt{findPatient}, and \texttt{validatePatient} are relevant for the given context, from the viewpoint of the focal group. For instance, the method \texttt{verifyPathoogy} is present in $73\%$ and $75\%$ of the classes \texttt{Disease} and \texttt{PatientDisease}, respectively. These values correspond to the \textit{strong} label in the scale of Figure~\ref{fig:scaleClass}.
+
+
+\input{tableRQ2Hospital}
+\newpage
+
+\begin{adjustwidth}{0.5cm}{0cm}
+Key: Agree (\checkmark) and Disagree (\xmark)\\
+\end{adjustwidth}
+
+%###############         E-COMMERCE      #########################
+
+%\newpage
+Given the e-commerce domain, let us consider Table~\ref{tbl:methodsEcommerce} for analyze the methods obtained from the top-ten most frequent classes. The classes with at least $10$ types methods identified as reuse opportunities are \texttt{Product}, \texttt{Customer}, \texttt{Item},	\texttt{Client}	\texttt{PaymentType},	\texttt{User}, and \texttt{ShoppingCart}, respectively. They have $15$, $12$, $12$, $12$, $11$, $10$, and $10$ identified methods, respectively. We observe that all of them are relevant in the e-commerce context, from the viewpoint of the focal group. In Table~\ref{tbl:methodsEcommerce}, we may observe methods that may be strongly recommended as reuse opportunities for a given class. 
+
+\input{tableRQ2-Ecommerce}
+\newpage
+\noindent
+\begin{adjustwidth}{0.6cm}{0cm}
+Key: Agree (\checkmark) and Disagree (\xmark)\\
+\end{adjustwidth}
+
+The method \texttt{productList}, for example,  appears in $72\%$ of the \texttt{Product} classes (i.e., a strong level of recommendation, according to Figure~\ref{fig:scaleClass}), against $55\%$ and $62\%$ for \texttt{PaymentType}, and \texttt{ProductDao}, respectively.  Therefore, this method is a strong candidate to compose a \texttt{Product} class, although it may be present in other classes such as \texttt{PaymentType} and \texttt{ProductDao}. The Count line presents the number of different types of methods that were found for a given type of class. For instance, for the \texttt{Customer} class, JReuse identified 12 types of methods as reuse opportunities. 
+
+
+\newpage
+\section{Lessons Learned}
+\label{sec:lessons}
+
+In this study, we learned a lot regarding interesting research topics such as software reuse, reuse opportunities identification, and recommendation systems. For this propose, we take as an example the e-commerce domain, especially by the popularity and size of these systems  on GitHub. We discuss some of the main lessons learned with support of the following questions.
+
+% pq  o  dominio de e-commerce possui mais sistemas,porém a ferramenta detectou mais ou menos as mesmas quantidadesde entidades para ambos os dominois? 
+
+% umdominio desistema possui entidades genéricas, que  estão contidas em vários sistemas, entao ,  podemos  congitar a possibilidade de encontrar 
+
+
+\textit{How much a lexical analysis may support the identification of reuse opportunities assets?} As discussed in Section~\ref{sec:backReuse}, there are many approaches to support software reuse in literature. Lexical analysis is a simple one. However, as pointed by the results of Section~\ref{ch4sec:rq}, it may be effective to identify reuse opportunities in systems from a single domain. Moreover, we initially conceived our method to gather elements with names that are semantically similar. However, through our study we identified some occurrences of similar entities in an intuitive fashion that do not represent the same real-world concept. For instance, in our exploratory study which was conducted in a controlled environment (see Section~\ref{ch4sec:evaluationSetup}) we found that frequent classes such as \texttt{Client} and \texttt{Costumer} have distinct behaviors although intuitively they represent the same real-world abstraction. Some classes named as \texttt{Client} implement a simplistic system clients which register data basically. In turn, \texttt{Costumer} classes generally implement system clients with more robust features, such as data management. Therefore, we conclude that lexical analysis performs satisfactorily to identify reuse opportunities at least in this domain.
+
+\textit{Names of classes and methods are suitable to the entities they represent in a business domain?} We discuss in Chapter~\ref{ch:approach} that names of classes and methods may be useful for reuse opportunities identification. In fact, we observed that naming similarity identification may support reuse opportunities identification. However, to retrieve similarly named classes and methods may be uninteresting if they are not representative in an specific domain. Chapter~\ref{ch:evaluation} highlights identified classes and methods that fit to e-commerce domain. These entities are the  most frequent that our tool detected. Therefore, we believe that names of entities are, in general, sufficiently representative. Moreover, we observed in this study that our method is able to identify reuse opportunities in randomly mined systems from GitHub, provided by different development teams. Therefore, we expect to obtain even  more relevant results in the context of an specific organization.
+
+\textit{How to apply our reuse opportunities  identification tool in a reuse recommendation system?} Methods and classes are elementary entities of object-oriented software systems. Knowing these entities, we are able to describe the architecture of a system. Therefore, with results provided by our tool, we see an opportunity for reuse recommendation through software modeling using class diagrams, for instance. %This conclusion lead us to a future work consisting of the improvement of our tool to also identify similarly named attributes and, then, to integrate our JReuse tool into a recommendation system based on class diagram modeling.
+
+To the best of our knowledge, we have not found many recent studies with respect to reuse opportunities identification, supported by tools for this activity, and methods to support the building of reuse repositories with similar approach. Therefore, as an interesting research topic, we lack more quantitative data to measure and compare different techniques that support software reuse.
+
+
+
+
+%\newpage
+\section{Threats to Validity}
+\label{sec:tv}
+
+We based our study on related work to support the method definition, the tool development, and the proposal of a recommendation system. Regarding the evaluation of our method and  tool, we conducted a careful empirical study to assess effectiveness of the tool with respect to reuse opportunities identification that are representative in the enterprise software context. However, some threats to validity may affect our research findings. The main threats and respective treatments are discussed below based on the proposed categories of~\cite{wohlin2012experimentation}. \\
+
+
+
+\noindent
+\textbf{Construct Validity.} Before running our reuse opportunities identification method, we conducted a careful filtering of information systems from GitHub repositories. However, some threats may affect the correct filtering of systems, such as human factors that wrongly lead to discard a valid system to be evaluated. Considering the exclusion criteria for selection of systems (see Section~\ref{ch4sec:dataSet}), we implemented an algorithm to automate this process and, then, discard inappropriate systems for analysis. However, we may have discarded relevant software systems by using our algorithm, such as systems misidentified as non-Java systems. \\
+
+
+\noindent
+\textbf{Internal Validity.} We conducted a lexical classification of entities that may be affected by some threats. To treat this possible problem, we selected a sample of 10 e-commerce systems from our data set, with diversified number of entities. Then, we manually identified the names of entities from source code to find synonyms. We compared our manual results with the results provided by the tool and observed a loss of 10\% in synonym terms identified through the automated process. \\
+
+\noindent
+\textbf{Conclusion Validity.} After running our identify tool, we gathered manually classes that seemed to represent the same real-world object. For instance, classes named as \texttt{Client} and \texttt{Costumer} were considered the same type of entity. The same occurred with methods identified by the tool as reuse candidates. However, this process is subjective and  may be affected by human factors. In this first exploratory study, we decided to not unify terms (e.g., Customer and Client) in the quantitative analysis. \\
+
+\noindent
+\textbf{External Validity.} We evaluated our method with a set of 72 systems, extracted from GitHub. Considering that they may not represent the 4  domains analyzed, our findings may be not be generalized. Furthermore, we evaluated only four system domains, accounting, restaurant, hospital, and e-commerce. However, the collected systems are the most popular on GitHub that is a largely used platform. Finally, we evaluated systems implemented only in Java programming language. Although it is one of the most popular languages worldwide, our results may not generalize to other programming languages.
+
+%\newpage
+\section{Final Remarks}
+\label{sec:finalRemarks}
+
+This chapter reported a study, conducted to evaluate our method and tool. We report in Section~\ref{ch4sec:dataSet}, the selection process of the domains of systems evaluated. In this context, we investigate how our method  performs in a wider range of systems. %We report an exploratory study which was conducted in a controlled environment to address two research questions. 
+
+
+Section~\ref{chsec:resultsMethods} and \ref{chsec:resultsClass}, we evaluated our method  and tool with $72$ open-source systems  available on GitHub. Our method called JReuse, reached acceptable results in every domains evaluated, indicating its applicability in different domains and  identifying  the main opportunities for reuse of  each domain. We derive a threshold to measure the level of relevance in recommend particular entity as reuse opportunities. The scale contains two levels, \textit{strong} and \textit{weak}. 
+
+
+
+%The scale is divided in  $3$ parts \textit{weak}, \textit{medium}, and \textit{strong}. \textit{Weak} indicates that the entity is little importance, \textit{medium} indicates that the entity is relevant and  \textit{strong} indicates that this entity is highly recommended.
+
+
+%In the next chapter, we present a survey with experienced developers in each evaluated domain. Nós selecionamos 200 desenvolvedores de cada domínio analisado a partir do GitHub. Essa seleção seguiu os seguintes critérios: (i) os três principais comitadores de cada domínio,  (ii) repositórios com no mínimo um ano de vida, (iii) repositórios com  mais estrelas, (iv) repositórios  desenvolvidos em Java, and  (v) repositórios com no mínimo  20 classes e 20 métodos. Além disso, os desenvolvedores selecionados, não poderiam fazer parte de qualquer sistema que foi analisado pelo método JReuse, para evitar um  viés na survey. 
+
+The next chapter describes the execution of a survey with GitHub developers for the purpose of assessing the results from JReuse analysis of software systems from 4 distinct software domains (e-commerce, hospital, restaurant and accounting systems). However,  because of the low response rate for the domains: accounting and restaurant, we discarded both domains in the analysis in next chapter.
+
+
+
+%In the next chapter, we present a survey with experienced developers in each evaluated domain. We selected 200 developers of each analyzed domain from GitHub. This selection followed the following criteria: (i) the three main contributors of each system, (ii) repositories with at least one year of life, (iii) repositories with the most amount of stars, (iv) repositories developed in Java, and (v) repositories with at least 20 classes and 20 methods.  \textbf{Além disso, os desenvolvedores selecionados, não poderiam fazer parte de qualquer sistema que foi analisado pelo método JReuse, para evitar um  viés na survey. }
+
+% restrição dos repositórios 

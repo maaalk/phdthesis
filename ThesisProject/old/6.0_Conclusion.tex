@@ -1,0 +1,59 @@
+\chapter{Conclusion}
+\label{ch:conclusion}
+
+In this dissertation, we proposed JReuse, a method to identify reuse opportunities in object-oriented software systems given a domain. We also presented a prototype tool that implements the proposed method. JReuse aims to recommend software components for reuse based on the most frequent entities from a set of systems in a given domain. 
+
+We evaluated our method in two steps. First, we performed a empirical study conducted in controlled environment. This study was conducted with a total of 72 software systems from four domains: accounting, restaurant, hospital, and e-commerce. We collected all systems from GitHub. Second, we performed a survey  with 31 domain experts in two of the four domains: e-commerce and hospital. 
+
+With respect to the first evaluation, our findings suggest that JReuse is able to identify several reuse opportunities for the analyzed domains, independent of the analyzed domain and the size of the systems. The number of obtained results is significant. Regarding the second evaluation, we observe based on the results of a survey that the most frequent classes provided by JReuse are relevant for the two domains under analysis.
+
+We organized the remainder of this chapter as follows. Section~\ref{secFim:contributions} summarizes the contributions of our study. Finally, Section~\ref{sec:futurework} suggests future work.
+
+\section{Contributions}
+\label{secFim:contributions}
+As a result of the work presented in this dissertation, we highlight the following contributions.\\
+
+\begin{itemize}
+\item JReuse, a method to support the identification of reuse opportunities in software systems from a given domain. JReuse is based on lexical similarity analysis of names of classes and methods, and relies on the analysis of object-oriented software systems.
+
+\item A supporting tool that implements the proposed method for identification of reuse opportunities. This tool is compatible with Java projects. The tool provides an output with the classes and methods identified as reuse opportunities, as well as absolute paths of the classes to be accessed in the source system.
+
+\item An evaluation of JReuse in two steps. First, we conducted an empirical study with 72 systems from four different domains (namely, accounting, restaurant, hospital, and e-commerce), collected from GitHub. Second, we conducted a survey with 31  domain experts from GitHub for two domains.
+
+%\item A comparative study on duplicated code detection tools in the context of clone detection between different systems. With this study, we excepted to find tools that support the identification of similar code fragments to be considered as reuse opportunities. However, we were not able to find tools for this purpose.
+
+\end{itemize}
+
+\begin{comment}
+\section{Limitations}
+\label{sec:limitarions}
+
+We carefully conducted our study to propose JReuse. For instance, we based our study in previous work and conducted two evaluations to assess the effectiveness of JReuse. However, there are some limitations described as follows.
+
+\begin{itemize}
+\item The proposed method is applicable to object-oriented systems only,
+
+\item We lack a survey with experienced developers regarding the most frequent methods provided by JReuse,
+
+\item Since the proposed method relies on lexical analysis, it does not consider similarity between names of entities in the semantic level. Therefore, considering two classes named as \texttt{Car} and \texttt{Automobile}, the tool is not able to identify both names as similar,
+
+\item The method proposed was designed for analysis in a given natural language, because it relies on lexical analysis. That is, the input systems has to be written using the same language, such as English or Portuguese.
+\end{itemize}
+\end{comment}
+
+\section{Future Work}
+\label{sec:futurework}
+
+We intend to complement this research with the following future work.
+
+\begin{itemize}
+\item With respect to the proposed method, we aim to apply other lexical analysis techniques to identify reuse opportunities. We may also implement a hybrid analysis that combines lexical and semantic techniques for identification and recommendation of source code statements as reuse opportunities.
+
+\item With respect to the JReuse supporting tool, we suggest an evaluation of the graphical user interface  in terms of usability. Moreover, we intend to assess the performance of tool with respect to scalability with larger systems.
+
+\item Regarding the evaluation of JReuse, we may extend the survey with domain experts to assess the method recommended by JReuse as reuse opportunities. In addition, we suggest a comparison of the effectiveness of JReuse to the manual identification of reuse opportunities conducted by developers.
+
+\item We suggest identify reuse opportunities in other programming languages. In addition, we wish evaluate the feasibility in identify reuse opportunities when there is a well-defined programming pattern  in same enterprise systems.
+
+
+\end{itemize}

@@ -1,0 +1,387 @@
+\section{Survey with Developers}
+
+In order to assess the relevance of the results of exploratory study conducted in a controlled environment, we performed a preliminary evaluation through a survey with specialist from each software domain explored.
+
+According to ~\cite{Easterbrook2008}, a survey research is used to identify the characteristics of a broad population of individuals, and it is most closely associated with the use of questionnaires for data collection. Four questionnaires were created for assessing the JReuse results for each software domain analyzed. 
+
+
+We request the developers for indicate in the rating scale how relevant certain class is for the domain under analysis. In order to punctuate the level of relevance, we present a scale of 0 to 5, where 0 means that the developer disagrees completely that the class is specific of the domain assessed and 5 means that it fully agrees that the class is exclusive of the domain analyzed. Each questionnaires was composed of $16$ questions, as shown in Table~\ref{tab:settingsSurvey}.
+
+
+
+
+
+\begin{table}[!h]
+\centering
+\tiny
+\caption{Survey Settings}
+\label{tab:settingsSurvey}
+\begin{tabular}{|l|l|l|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}Group}                  & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Questions}                                                                                                                                                                                                                                                                                                                                                  & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Alternative}                                                                                                                                                 \\ \hline
+                                                                     & \begin{tabular}[c]{@{}l@{}} \justify (Q1)  Do you,work with \\ software development ?\end{tabular}                                                                                                                                                                                                                                                                                                                & "Yes"; "No"; "Partially"                                                                                                                                                                                 \\ \cline{2-3} 
+																	 & \begin{tabular}[c]{@{}l@{}} \justify (Q2)How long do you \\ develop software?\end{tabular}                                                                                                                                                                                                                                                                                                                        & \begin{tabular}[c]{@{}l@{}} \justify "Less than one year"; \\ "Between one and three years"; \\ "For more than three years"\end{tabular}                                                                           \\ \cline{2-3} 
+\begin{tabular}[c]{@{}l@{}}Backrgound\end{tabular}                   & \begin{tabular}[c]{@{}l@{}} \justify (Q3)Choose the,highest, in, \\ computer science level \\ you hold ?\end{tabular}                                                                                                                                                                                                                                                                                             & \begin{tabular}[c]{@{}l@{}} \justify "PhD"; "Master Degree"; \\ "Complete Graduate"; \\ "Ongoing graduate program"; \\ "High school or below"; \\  "I don't have knowledge \\ about computer science"\end{tabular} \\ \cline{2-3} 
+																	 & \begin{tabular}[c]{@{}l@{}} \justify (Q4) Do you develop software products\\  for the <DOMAIN> domain ?\end{tabular}                                                                                                                                                                                                                                                                                            & "Yes"; "No"; "Partially"                                                                                                                                                                                 \\ \hline
+\begin{tabular}[c]{@{}l@{}}Domain Specific \\ Questions\end{tabular} & \begin{tabular}[c]{@{}l@{}} \justify (Q5 ~ Q16) Please, consider the \\ following classes. Which classes \\ do you consider that belong to, \\ the < DOMAIN > domain? \\ Assume a range from 0 to 5 \\ where 0 means you disagree \\ completely that the,class is, from \\ the < DOMAIN >, domain and \\ 5 means you completely agree, \\ that the,class is exclusive \\ from the < DOMAIN > domain.\end{tabular} & likert scale: 0  to 5                                                                                                                                                                                    \\ \hline
+Comments                                                             & \begin{tabular}[c]{@{}l@{}} \justify If you have further comments, \\ please use the text area below\end{tabular}                                                                                                                                                                                                                                                                                                 & Open question                                                                                                                                                                                            \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\newpage
+Let us consider the Table~\ref{tab:settingsSurvey}. For the questions $Q5$ to $Q16$ we asked the subjects to evaluate the relevance of each class returned from JReuse method for the specific domains analyzed in the exploratory study (Section~\ref{chsec:results}). Additionally, a control class (named "Game"), clearly out of the scope of the domains under analysis was introduced, to assess the quality of the responses.
+
+A critical step in a survey research is the selection of a representative sample from a well defined population, and the data analysis techniques used to generalize from that sample to the population, usually to answer base-rate questions~\citep{Easterbrook2008}. For selecting a population sample to participate in the survey, we follow a procedure similar to other studies investigating GitHub~\citep{Salvaneschi:2014,Kalliamvakou:2014}. Furthermore, the following steps were executed: (i) Identify GitHub Java projects from the software domains of: accounting, restaurant, hospital, and e-commerce;
+(ii) Select  \textit{200-top} most popular repositories from each domain sorted by decreasing order of stars (GitHub rating system);
+(iii) Exclude projects that were included in the original study data set (Section~\ref{ch4sec:dataSet});
+(iv) Exclude Android projects;
+(v) Exclude projects in portuguese;
+(vi) Exclude projects with less than $20$ classes and $20$ methods;
+(vii) Exclude projects with less than an year of life;
+(viii) For each remaining projects identify the top $3$ committers and extract valid e-mail address.
+
+
+A total of $202$ developers e-mail addresses were extracted from $198$ different projects. We sent specific questionnaires for each system domain. A total of $32$ ($15,8$\%) response were obtained. The population sampling distribution is shown in Table~\ref{tab:survey}.
+
+\begin{table}[!h]
+\centering
+\caption{Population Sampling Distribution}
+\label{tab:survey}
+\scriptsize
+\begin{tabular}{|l|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+\multicolumn{1}{|c|}{\cellcolor[HTML]{EFEFEF}\textbf{Domain}} & \textbf{Projects} & \textbf{E-mails Sent} & \textbf{Answer} \\ \hline
+Accounting                                           & 11       & 11           & 1      \\ \hline
+Restaurant                                           & 10       & 13           & 0      \\ \hline
+Hospital                                             & 56       & 111          & 9      \\ \hline
+E-commerce                                           & 121      & 67           & 22     \\ \hline
+\multicolumn{1}{|c|}{Total}                          & 198      & 202          & 32     \\ \hline
+\end{tabular}
+\end{table}
+
+
+Given the low response rate from developers from Accounting and Restaurant software domains, we opted for limiting our analysis to the scope of the responses of developers from the software domains of hospital and e-commerce.
+
+%Regarding the subjects background, e-commerce domain the figures 
+
+Regarding the subjects  of the  e-commerce domain,  the  Figures~\ref{fig:backEcommere-1}, \ref{fig:backEcommere-2}, \ref{fig:backEcommere-3}, and \ref{fig:backEcommere-4},  presents the  background in relation the questions: ''Do you  work with software development ?'', ''How long do you develop software?'', and  ''Choose the  highest  in  computer science level you hold ?'', respectively.
+
+
+Figure~\ref{fig:backEcommere-1} shows that $16$ of the $22$ participants work with software development. This number represents $72,73$\% of the population sampling for domain of e-commerce, that is, the population is relevant to evaluate our method.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/backEcommere-1.jpg}
+\caption{Do you  work with software development ?}
+\label{fig:backEcommere-1}
+\end{figure}
+
+
+
+\newpage
+Figure~\ref{fig:backEcommere-2} presents the result about  work experience of survey participants in e-commerce domain. Note that, $13$ ($59$\%) subjects have more than three years work experience, $8$ ($36,37$\%) have between one and three year and only $1$ ($4,55$\%) have  less than one year work experience. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/backEcommere-2.jpg}
+\caption{How long do you develop software?}
+\label{fig:backEcommere-2}
+\end{figure}
+
+
+
+Regarding the level of background in the science of computer, Figure~\ref{fig:backEcommere-3} show that $9$ ($40,91$\%) subjects have  complete graduate in area, $8$  ($36,37$\%) have  master degree in area, $4$ ($18,19$\%) have PhD, and only $1$ ($4,55$\%) subject has high school or below. We consider this representative sample,  mainly by distribution of the level of formation of the subjects.\\
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/backEcommere-3.jpg}
+\caption{Choose the  highest  in  computer science level you hold ?}
+\label{fig:backEcommere-3}
+\end{figure}
+
+
+
+Considering the question about development  of product for e-commerce domain, Figure~\ref{fig:backEcommere-4} presents the results. Note that, $19$ ($86,37$\%) subjects develop software for e-commerce domain and $3$ ($13,64$\%) subjects not develop software for e-commerce domain, that is, more than $85$\% of the sample of participants, develops products specifically for e-commerce domain.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/backEcommere-4.jpg}
+\caption{Do you develop software products for the e-commerce domain ?}
+\label{fig:backEcommere-4}
+\end{figure}
+
+
+Regarding the opinion of the subjects in relation to the JReuse results for the domain of e-commerce systems, the Figures~\ref{fig:e-commerceProduct}, \ref{fig:e-commercePaymentType}, \ref{fig:e-commerceClient}, \ref{fig:e-commerceProductDao}, \ref{fig:e-commerceClientDao}, \ref{fig:e-commerceItem}, \ref{fig:e-commerceShoppingCart}, \ref{fig:e-commerceUser}, \ref{fig:e-commerceCustomer},  \ref{fig:e-commerceCategory}, and \ref{fig:e-commerceGame} show the results for top-ten classes most frequent in this domain and the class of control named ''Game''. Following we discuss the results obtained for each class.
+
+
+
+
+Figure~\ref{fig:e-commerceProduct} show the result for the class Product.  For this class, $19$ ($86,37$\%) sample participants agree that the class is highly relevant for this domain, i.e,  this class is exclusive to e-commerce domain. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/product.jpg}
+\caption{Class Product}
+\label{fig:e-commerceProduct}
+\end{figure}
+
+\newpage
+Let us consider Figure~\ref{fig:e-commercePaymentType}. This Figure presents  the result for the class PaymentType. For this class, $9$ ($40,91$\%) sample participants agree that the class is  relevant for this domain, $8$ ($36,37$\%) subjects consider  that is highly relevant for this domain  
+that is,  this class is exclusivity of the e-commerce domain.  In general is possible conclude that the class it  is specific for this domain. This class contains operations that make  reference the manipulation the form of payment of the product.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/paymentType.jpg}
+\caption{Class PaymentType}
+\label{fig:e-commercePaymentType}
+\end{figure}
+
+
+Figure~\ref{fig:e-commerceClient} presents the result of the view point of the subjects referent the class Client. In this figure it can be observed that $18$ ($81,82$\%) subjects scored in scale the number $5$, value maximum of relevance for the a class. They agree that this class is  extremely important and is exclusive to e-commerce domain.  
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/client.jpg}
+\caption{Class Client}
+\label{fig:e-commerceClient}
+\end{figure}
+
+
+Consider Figure~\ref{fig:e-commerceProductDao} to analyze, we observe that $16$ ($72,73$\%) of the subjects strongly indicated this class for e-commerce domain. The $22$ subjects scored above $2$ points  in scale for this class. Above $2$ points on the scale, we understand that the class really belongs to the analyzed domain. Therefore, considered the data we can conclude that in general this class is important for this domain.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/productDao.jpg}
+\caption{Class ProductDao}
+\label{fig:e-commerceProductDao}
+\end{figure}
+
+
+Let us consider Figure~\ref{fig:e-commerceClientDao}. This Figure presents  the result for the class ClientDao. For this class, $21$ sample participants agree that the class is  highly relevant for this domain, whereas more than $95$\% of the participants scored in the range above 2 points. For this reason, we consider that this class  is indeed necessary for this domain. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/clientDao.jpg}
+\caption{Class ClientDao}
+\label{fig:e-commerceClientDao}
+\end{figure}
+
+
+
+Figure~\ref{fig:e-commerceItem} presents the results about the class Item.  This class divi
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/item.jpg}
+\caption{Class Item}
+\label{fig:e-commerceItem}
+\end{figure}
+
+
+
+Figure~\ref{fig:e-commerceShoppingCart}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/shoppingCart.jpg}
+\caption{Class ShoppingCart}
+\label{fig:e-commerceShoppingCart}
+\end{figure}
+
+
+Figure~\ref{fig:e-commerceUser}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/user.jpg}
+\caption{Class User}
+\label{fig:e-commerceUser}
+\end{figure}
+
+
+Figure~\ref{fig:e-commerceCustomer}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/customer.jpg}
+\caption{Class Customer}
+\label{fig:e-commerceCustomer}
+\end{figure}
+
+
+Figure~\ref{fig:e-commerceCategory}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/category.jpg}
+\caption{Class Category}
+\label{fig:e-commerceCategory}
+\end{figure}
+
+
+Figure~\ref{fig:e-commerceGame}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/e-commerce/game.jpg}
+\caption{Class of Control "Game"}
+\label{fig:e-commerceGame}
+\end{figure}
+
+
+Regarding the subjects background, hospital domain...
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/b1.jpg}
+\caption{Do you  work with software development ?}
+\label{fig:backHospital-1}
+\end{figure}
+
+
+
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/b2.jpg}
+\caption{How long do you develop software?}
+\label{fig:backHospital-2}
+\end{figure}
+
+
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/b3.jpg}
+\caption{Choose the  highest  in  computer science level you hold ?}
+\label{fig:backHospital-3}
+\end{figure}
+
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/b4.jpg}
+\caption{Do you develop software products for the e-commerce domain ?}
+\label{fig:backHospital-4}
+\end{figure}
+
+
+Regarding the opinion of the subjects in relation to the JReuse results for the domain of Hospital Systems....
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/patient.jpg}
+\caption{Class Patient}
+\label{fig:hospitalPatient}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/diagnose.jpg}
+\caption{Class Diagnose}
+\label{fig:hospitalDiagnose}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/disease.jpg}
+\caption{Class Disease}
+\label{fig:hospitalDisease}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/patientDisease.jpg}
+\caption{Class PatientDisease}
+\label{fig:hospitalPatientDisease}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/healthPlan.jpg}
+\caption{Class HealthPlan}
+\label{fig:hospitalHealthPlan}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/doctor.jpg}
+\caption{Class Doctor}
+\label{fig:hospitalDoctor}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/symptoms.jpg}
+\caption{Class Symptoms}
+\label{fig:hospitalSymptoms}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/immunology.jpg}
+\caption{Class Immunology}
+\label{fig:hospitalImmunology}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/user.jpg}
+\caption{Class User}
+\label{fig:hospitalUser}
+\end{figure}
+
+
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\textwidth]{img/hospital/login.jpg}
+\caption{Class Login}
+\label{fig:hospitalLogin}
+\end{figure}
+
+
+
