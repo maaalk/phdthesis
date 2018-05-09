@@ -1,45 +1,53 @@
 \chapter{Gamification in Software Engineering Education:
 An Empirical Study}
-\label{ch:gamificationExperiment}
+\label{ch:gamificationexperiment}
 
-This chapter describes our experience and provides an evaluation of the adoption of gamification in a 60-hour introductory course on Software Engineering at Federal University of Minas Gerais (UFMG), in Brazil, during the second semester of 2016. This course covers a plethora of topics, from requirements engineering to software design, implementation, and testing. The classes were attended by 36 undergraduate students in Computer Science and Information Systems. We introduced two elements of games, namely badges and leaderboards, to engage students and promote a safe competition environment by rewarding students for their achievements. While badges award students by specific achievements, a leaderboard aims to indicate the overall performance of every student with respect to their peers. We introduced these game elements using the course webpage, where students could have regular feedback. 
+This chapter describes our experience and provides an evaluation of the adoption of gamification in a 60-hour introductory course on Software Engineering at Federal University of Minas Gerais (UFMG), in Brazil, during the second semester of 2016. The goal of this study is to provide an initial understanding of how gamification fits in the software engineering eduation context. In this study, we introduced two elements of games, namely badges and leaderboards, to engage students and promote a safe competition environment by rewarding students for their achievements. While badges award students by specific achievements, a leaderboard aims to indicate the overall performance of every student with respect to their peers. We introduced these game elements using the course webpage, where students could have regular feedback. Therefore, considering the two main categories of Gamification approaches found in Chapter \ref{ch:sms}, gamification of the classroom experience and gamification of specific SE activities), we opted for the first, as it demanded less effort and preparation to implement in the course.
 
 We evaluated the proposed course features in two steps. First, we applied a survey to 18 volunteer students to collect their feedback about the impact of badges and leaderboards during their course experience. Second, we interviewed six randomly selected students for a deeper investigation about their perceptions about the course and the use of game elements. Our results show that badges had a greater impact on the motivation of students than leaderboards. In addition, we observed that students would like to see badges more frequently in other courses. On the other hand, leaderboards had poor appraisals from the students in the survey. However, interviews revealed that students used periodic reports on their partial grades for comparing their performance against other students, which is similar to a leaderboard. A general complaint is that students feel that the most appropriate reward for their performance is extra grades rather than achievement recognition. Despite the number of participants interviewed, the focus of this study is to report our experiences and observations, rather than validating hypothesis.
 
-The remainder of this chapter is organized as follows. Section II provides the necessary theoretical foundation for the study. Section III describes the gamification elements introduced in the Software Engineering course under investigation. In Section IV, we describe the design of this study. Section V presents the results of the study. In Section VI, we discuss our findings regarding the research questions defined for this study. Section VII discuss the threats to the validity of the study while we discuss the related work in Section VIII. Section IX concludes this research paper
+The remainder of this chapter is organized as follows. Section \ref{sec:gamificationcoursesetup} describes the gamification elements introduced in the SE course under investigation. In Section \ref{sec:gamificationstudysettings}, we describe the design of this study. Section \ref{sec:gamificationresults} presents the results of the study. In Section \ref{sec:gamificationdiscussion}, we discuss our findings regarding the research questions defined for this study. Section \ref{sec:gamificationthreats} discuss the threats to the validity of the study. Section \ref{sec:gamificationfinal} concludes this research paper
 
 \section{Course setup}
+\label{sec:gamificationcoursesetup}
 
 Every year at Federal University of Minas Gerais (UFMG) in Brazil, about 100 students take a face-to-face Software Engineering course. The introductory Software Engineering course (“SE Course”, henceforth) aims to introduce students to the concepts and methods required for the development of large software intensive systems. Its prerequisite is familiarity with object-oriented programming, demonstrated through a successful completion of the Modular Programming course at UFMG (or equivalent course in another university).
 
-This Software Engineering course is mainly based on two textbooks: Software Engineering by Sommerville [14] and The UML User Guide by Booch, Rumbaugh, Jacobson [15]. The course syllabus includes: software development process, agile methods, software requirements analysis and specification, software design, system implementation and testing, software reuse, and software quality.
-Previous instances of this course had already been the target of experimental studies on alternative educational methods [16] [17]. In the second semester of 2016, we planned the inclusion of gamified elements in the course format. Specifically, we adopted badges and leaderboards. A badge is a common element in games to recognize specific achievements of players. Leaderboard is recurring element in games to foster competition, allowing players to compare their progress or performance against other players. Both elements capitalize on principles of social status and reputation.
+This Software Engineering course is mainly based on two textbooks: Software Engineering by \cite{Sommerville:2010} and The UML User Guide by \cite{Booch:2005}. The course syllabus includes: software development process, agile methods, software requirements analysis and specification, software design, system implementation and testing, software reuse, and software quality.
+Previous instances of this course had already been the target of experimental studies on alternative educational methods \citep{Figueiredo:2014, Fernandes:2016}. In the second semester of 2016, we planned the inclusion of gamified elements in the course format. Specifically, we adopted badges and leaderboards. A badge is a common element in games to recognize specific achievements of players. Leaderboard is recurring element in games to foster competition, allowing players to compare their progress or performance against other players. Both elements capitalize on principles of social status and reputation.
 
 In the context of the SE Course, we used badges to recognize specific actions of students. We established eight badges in this first iteration of a gamified course. Examples of badges are listed below.
 
-•	Agility and Precision: Awarded to the student who first submitted a correct solution for a specific practical task, such as, code implementations, or homework, or practical assignment.
+\begin{itemize}
+    \item Agility and Precision: Awarded to the student who first submitted a correct solution for a specific practical task, such as, code implementations, or homework, or practical assignment.
+    \item Clean Code: Awarded to the student who used code standards explained in the classroom to document the code and keep it easy to read.
+    \item Performance Improvement: Awarded to the student who had the greater improvement in grade from the first to the second exam.
+    \item Online Participation: Awarded to the students who accessed all online material of this course.
+\end{itemize}
+	 
+In the first day of class, the instructors communicated students about the existence of badges, but they did not provide details on how to obtain them. Whenever a student met the criteria to receive a badge, all students were communicated in the classroom and the badge was revealed in the course website with the name of students who obtained it. Figure \ref{fig:gamificationbadges} shows examples of badges awarded to students during the course. Additionally, these badges did not provide direct bonus grades or any advantage in the course, apart from achievement recognition. However, the attendance to the badges criteria would positively contribute to a better performance on the course assignments and activities.
 
-•	Clean Code: Awarded to the student who used code standards explained in the classroom to document the code and keep it easy to read.
+\begin{figure}[!h]%th
+    \centering
+    \includegraphics[width = 0.5\textwidth]{img/gamificationBadges.png}
+    \caption{Examples of four badges in the SE course.}
+    \label{fig:gamificationbadges}
+\end{figure}
 
-•	Performance Improvement: Awarded to the student who had the greater improvement in grade from the first to the second exam.
-
-•	Online Participation: Awarded to the students who accessed all online material of this course. 
-
-In the first day of class, the instructors communicated students about the existence of badges, but they did not provide details on how to obtain them. Whenever a student met the criteria to receive a badge, all students were communicated in the classroom and the badge was revealed in the course website with the name of students who obtained it. Table I shows examples of badges awarded to students during the course. Additionally, these badges did not provide direct bonus grades or any advantage in the course, apart from achievement recognition. However, the attendance to the badges criteria would positively contribute to a better performance on the course assignments and activities.
-
-TABLE I. 	EXAMPLES OF FOUR BADGES IN THE SE COURSE
 
 Leaderboard was incorporated with two resources: (i) a chart with partial grades and (ii) a Hall of Fame. The chart with partial grades was a digital document that was updated periodically and accessible in the course website, where students could track their grades and compare their performance against other students. To preserve the anonymity, the students were identified only by their university registration number. The “Hall of Fame”, on the other hand, is a special page in the course website that acknowledges the names of the top three best students of each course semester and the top ten students of all time. 
 
-TABLE II. 	TOP TEN STUDENTS OF ALL TIME IN THE SE COURSE
+\input{TableGamificationHallofFame.tex}
 
-Table II shows the Hall of Fame with the top-10 best grades of all time in the SE course. The second column of this table indicates the student grade in 100 points. The third and fourth columns indicate the semester and the student name, respectively. Although Figure 2 presents the best scores since 2012, this table was only made available in the second semester of 2016 based on historical data.
+Table \ref{table:gamificationhalloffame} shows the Hall of Fame with the top-10 best grades of all time in the SE course. The second column of this table indicates the student grade in 100 points. The third and fourth columns indicate the semester and the student name, respectively. Although Figure 2 presents the best scores since 2012, this table was only made available in the second semester of 2016 based on historical data.
 
 \section{Study settings}
+\label{sec:gamificationstudysettings}
 
-This section explains how we planned and executed this study. Section IV-A presents the study goal and research questions while Section IV-B discusses the research method we adopted. Section IV-C presents the survey and Section IV-D explains the structure of an interview with 6 randomly selected students.
+This section explains how we planned and executed this study. Section \ref{sec:gamificationgoals} presents the study goal and research questions while Section \ref{sec:gamificationmethod} discusses the research method we adopted. Section\ref{sec:gamificationsurvey} presents the survey and Section \ref{sec:gamificationinterview} explains the structure of an interview with 6 randomly selected students.
 
 \subsection{Study Goals and Research Questions}
+\label{sec:gamificationgoals}
 
 The goal of this study is to investigate how the use of gamification could contribute to motivate students in Software Engineering education. To achieve this goal, we formulated two Research Questions (RQ) presented below.
 
@@ -48,35 +56,37 @@ The goal of this study is to investigate how the use of gamification could contr
 \textbf{RQ2.} What are the student perceptions on the use of leaderboards in the SE Course?
 
 \subsection{Study Design and research methods}
+\label{sec:gamificationmethod}
 
 To answer the research questions, we adopted two techniques. First, we conducted a survey with the students to collect general impressions of the course (Phase I). Second, we conducted interviews to further understand the perception of the students about the gamification techniques used in the course (Phase II).
 
 For both phases, the target population was all 36 students enrolled in the SE Course. They were invited to participate in both studies by e-mail. To reduce possible bias, one of the authors, who was not directly involved in the course execution, was responsible for the invitation of participants and data collection. The students were instructed that the participation in the survey and in the interviews was not compulsory and this participation did not provide any benefits in grades. Besides that, the student names were not revealed to the course instructors during the data analysis, to ensure that students would not be embarrassed for giving negative responses.
 
 \subsection{Planning of the Study Phase I - Survey}
+\label{sec:gamificationsurvey}
 
-Survey is an empirical strategy for collecting information from or about people to describe, compare or explain their knowledge, attitudes, and behavior using questionnaire or checklist [18]. In the first phase of our study, a survey was applied to collect a quantitative perspective of the students’ perception on the use of badges and leaderboards in the SE course. 
+Survey is an empirical strategy for collecting information from or about people to describe, compare or explain their knowledge, attitudes, and behavior using questionnaire or checklist \citep{Pfleeger:2001}. In the first phase of our study, a survey was applied to collect a quantitative perspective of the students’ perception on the use of badges and leaderboards in the SE course. 
 
-We created a questionnaire on Google Forms  with two parts: the first one was composed of 4 questions about the background of the students; the second part had 8 questions about the perception of the students about the gamification elements used in the course. Table III shows the list of questions in the first part of our survey and Table IV summarizes the questions of the second part. The background questions were named BQ1 to BQ4, while the questions of the second part of our survey were named SQ1 to SQ8. Tables III and IV describe the possible answers for each question. Invitations were sent by e-mail to all 36 students formally enrolled in the course, as described in Section IV-B.
+We created a questionnaire on Google Forms  with two parts: the first one was composed of 4 questions about the background of the students; the second part had 8 questions about the perception of the students about the gamification elements used in the course. Table \ref{table:gamificationsurvey} summarizes the items of the questionnaire. The background questions were named BQ1 to BQ4, while the questions of the second part of our survey were named SQ1 to SQ8. Tables \ref{table:gamificationsurvey} describes the possible answers for each question. Invitations were sent by e-mail to all 36 students formally enrolled in the course, as described in Section \ref{sec:gamificationmethod}.
 
-TABLE III. 	SURVEY QUESTIONS ON THE PARTICIPANT BACKGROUND
-
-TABLE IV. 	SURVEY QUESTIONS ON THE PARTICIPANT PERCEPTION OF THE GAMIFICATION ELEMENTS  IN THE SE COURSE
+\input{TableGamificationSurvey.tex}
 
 \subsection{Planning of the Study Phase II - Interviews}
+\label{sec:gamificationinterview}
 
-An interview is a research method defined by a conversation where questions are asked and answers are given [19]. In this study, we used interviews to compliment and deepen the results observed in the survey (Phase I), providing a qualitative perspective on the students’ perception of the gamification elements introduced in the SE Course.
+An interview is a research method defined by a conversation where questions are asked and answers are given \citep{Wohlin:2012}. In this study, we used interviews to compliment and deepen the results observed in the survey (Phase I), providing a qualitative perspective on the students’ perception of the gamification elements introduced in the SE Course.
 
-As described in Section IV-B, we sent invitation e-mails to all 36 students formally enrolled in the course. In the invitation email, we made it clear that the participant would have their personal data kept anonymously. We interviewed participants individually, face-to-face or by video-conference, as they prefer in order to make the situation more comfortable and natural for them. The interviews were executed after the conclusion of the course, and that the course instructor would not have access to the names of the participants, to reduce possible bias. Table V describes the interview script. This script is composed of 9 questions, named IQ1 to IQ9. For instance, the first question (IQ1 in Table V) asks students if they track their partial grades during the course.
+As described in Section \ref{sec:gamificationmethod}, we sent invitation e-mails to all 36 students formally enrolled in the course. In the invitation email, we made it clear that the participant would have their personal data kept anonymously. We interviewed participants individually, face-to-face or by video-conference, as they prefer in order to make the situation more comfortable and natural for them. The interviews were executed after the conclusion of the course, and that the course instructor would not have access to the names of the participants, to reduce possible bias. Table \ref{table:gamificationinterview} describes the interview script. This script is composed of 9 questions, named IQ1 to IQ9. For instance, the first question (IQ1 in Table \ref{table:gamificationinterview}) asks students if they track their partial grades during the course.
 
-TABLE V. 	INTERVIEW QUESTIONS
+\input{TableGamificatioInterview.tex}
 
 \section{Results}
+\label{sec:gamificationresults}
 
-In this section, we discuss the results of the study. Section 
-V-A presents the descriptive analysis of the results from the survey (Phase I). In Section V-B, we discuss the qualitative results of the interviews (Phase II).
+In this section, we discuss the results of the study. Section \ref{sec:gamificationsurveyresults} presents the descriptive analysis of the results from the survey (Phase I). In Section \ref{sec:gamificationinterviewresults}, we discuss the qualitative results of the interviews (Phase II).
 
 \subsection{Study Phase I - Survey Results}
+\label{sec:gamificationsurveyresults}
 
 From the 36 students in the SE course, 18 participants answered the survey. Of these students, 17 were undergraduate students of the Information System course and only 1 was an undergraduate student in the course of Computer Science. 
 
@@ -93,7 +103,7 @@ Figure \ref{fig:gamificationbq4} shows the results for the last background quest
 
 \begin{figure}[!h]%th
 \centering
-\includegraphics[width = 0.7\textwidth]{img/gamificationBQ4.png}
+\includegraphics[width = 0.5\textwidth]{img/gamificationBQ4.png}
 \caption{Results for the survey background question BQ4.}
 \label{fig:gamificationbq4}
 \end{figure}
@@ -104,16 +114,16 @@ As described in Section III, eight badges were implemented in the SE course. Whe
 
 \begin{figure}[!h]%th
 \centering
-\includegraphics[width = 0.6\textwidth]{img/gamificationSQ14.png}
+\includegraphics[width = 0.5\textwidth]{img/gamificationSQ14.png}
 \caption{Survey results on the students perception on the use of badges.}
 \label{fig:gamificationsq14}
 \end{figure}
 
-Regarding the leaderboards, specifically the “Hall of Fame”, the survey results were generally negative, as seen in Figure Figure \ref{fig:gamificationsq14}. The questions SQ5 to SQ7 inquired participants about the relevance of such resource (SQ5), about how it motivated them to achieve better performance in the course (SQ6), and about the relevance of such resource in other courses (SQ7). Although there were very positive responses for the three questions, the negative responses were dominant. In the Phase II of this study, we investigated the reasons of such negative perception.
+Regarding the leaderboards, specifically the “Hall of Fame”, the survey results were generally negative, as seen in Figure \ref{fig:gamificationsq57}. The questions SQ5 to SQ7 inquired participants about the relevance of such resource (SQ5), about how it motivated them to achieve better performance in the course (SQ6), and about the relevance of such resource in other courses (SQ7). Although there were very positive responses for the three questions, the negative responses were dominant. In the Phase II of this study, we investigated the reasons of such negative perception.
 
 \begin{figure}[!h]%th
 \centering
-\includegraphics[width = 0.6\textwidth]{img/gamificationSQ14.png}
+\includegraphics[width = 0.5\textwidth]{img/gamificationSQ14.png}
 \caption{Survey results on the students perception of the “Hall of Fame”.}
 \label{fig:gamificationsq57}
 \end{figure}
@@ -146,8 +156,9 @@ Five students suggested that the course instructor should provide more details o
  “This method could be more interesting if the means of evaluation were clearer and more objective. As 'Online Participation', which online actions are rewarded? Log in every day at the platform (online course), or see all classes or post questions? In which case would any of these actions be more accounted than another? Is the ordering for better online participation updated every week? What do you get with your name in badge list or Hall of Fame? Are there awards in grades? Is it visibility among colleagues? And, is it the visibility among colleagues positive?”
 
 \subsection{Study Phase II – Interviews Results}
+\label{sec:gamificationinterviewresults}
 
-Based on the results of the survey, we planned and conducted interviews to obtain a better understanding on the student perception on the gamification elements used. Six students accepted the invitation for interviews. The interviews followed the script described in Section IV-D. In order to identify the interviewee responses, we adopt the identifiers “Participant A”, “Participant B”, “Participant C”, “Participant D”, “Participant E”, and “Participant F” to refer to the participants, while preserving their anonymity.
+Based on the results of the survey, we planned and conducted interviews to obtain a better understanding on the student perception on the gamification elements used. Six students accepted the invitation for interviews. The interviews followed the script described in Section \ref{sec:gamificationinterview}. In order to identify the interviewee responses, we adopt the identifiers “Participant A”, “Participant B”, “Participant C”, “Participant D”, “Participant E”, and “Participant F” to refer to the participants, while preserving their anonymity.
 
 Regarding the leaderboards, we first investigated how students used the information about their progress that we provided. As described in Section III, the leaderboards were introduced in the course with two resources: (i) a chart with partial grades updated regularly, where students could compare their progress against other students; and (ii) a hall of fame. First, we investigated if the students kept track of their progress (IQ1) and if they used the partial grades to compare their performance against their colleagues (IQ2). Except for the Participant A, all participants stated they tracked their progress in the course. Moreover, all participants, except for the participant C stated they used the grade chart to compare their performance against their colleagues. Participant B, Participant D, Participant E, and Participant F stated that it was useful to understand the overall performance of the classmates in order to know what their real performance was. Participant A stated that this comparison was a consequence of the competitiveness in the classroom. However, Participant C claimed that he always tried to achieve the best grades, and it was not interested in comparing their performance to the others.
 
@@ -159,26 +170,30 @@ From the six participants in this study phase, only one (Participant C) received
 When we asked participants about the strategy of not revealing the criteria for receiving each badge, the opinions were mixed. Participants B, C, and E defended the idea of specifying the criteria for each badge as soon as possible, because students would establish additional goals besides the grades and, from an educational perspective, it would become an opportunity to pay attention to aspects that they would not normally observe. For Participants C, D, F, the criteria for obtaining badges could make students focus too much attention on the game aspect and, somehow, they could have a counterproductive effect on learning. Except for Participant A, all students were positive when asked if they would like to see more badges in the course.
 
 \section{Discussion}
+\label{sec:gamificationdiscussion}
 
-This section discusses the results presented in Section V and our general findings regarding the research questions defined in Section IV-A.
+This section discusses the results presented in Section \ref{sec:gamificationresults} and our general findings regarding the research questions defined in Section \ref{sec:gamificationgoals}.
 
 \subsection{Badges in a Software Engineering course (RQ1)}
+\label{sec:gamificationdiscussionrq1}
 
 Our results showed a general positive perception of the students towards the use of badges during the course. Considering that we did not explore this resource to the full potential, by having only eight badges, the students showed interest on them.
 
 Student perception on the role of badges was twofold: (i) they served as a social reward, a public recognition of the student skill or effort; and (ii) they served as a secondary goal, besides the grades and approval, to strive for when performing the course activities. These two elements can be further explored to motivate students not only in performing better in the course, but also as a motivation to further explore Software Engineering good practices. For instance, it can make students aware of good practices related to the use of tools, of good practices for coding, and so on. In this initial study, we opted for keeping the requirements for earning badges in secret to avoid the students expectative of grades, but we are aware of the motivation it can generate.
 
-One of the students participating in the interviews was particularly unsatisfied about the gamification elements in the course, because he wanted they to explore the practical nature of Software Engineering and professional practices. We are considering this feedback for further improvements of the SE course. However, in general, the results showed that the positive impressions about the use of badges were greater than the negative ones.
+One of the students participating in the interviews was particularly unsatisfied about the gamification elements in the course, because he wanted they to explore the practical nature of Software Engineering and professional practices. This is an important feedback, considering that another approach would be the gamification of specific SE activities, as discussed in Chapter \ref{ch:sms}.
 
 Another issue we observed about the gamification strategy is that most students think of grades as the only reward they can achieve in a course. The feedback received in the survey reflects this rationale: students often asked how the badges would translate into higher grades. It was a surprise to see that they also perceived some value in the social recognition aspect of badges.
 
-\subsection{Leaderboards in a Software Engineering course (RQ1)}
+\subsection{Leaderboards in a Software Engineering course (RQ2)}
+\label{sec:gamificationdiscussionrq2}
 
 The use of leaderboards in the course was received with mixed opinions. The results of the Phase I of the study had more negative responses than positive ones. In the survey, we focused specifically in the Hall of Fame resource. The results obtained from Phase II had given us additional perspectives on this issue.
 
 First, we observed that students used the partial results to regularly compare their performance against each other, and felt motivated to perform better when they had lower grades than the others. These periodic updates were seen as a baseline to understanding the overall performance of the class and to assess their own performance. The interviews showed that the Hall of Fame was seen as a social recognition of the efforts of the students, and it was also seen in a good light from this perspective. We believe that the negative aspect of this strategy may be related to the exclusive focus on grades. While grades are a direct measure of the student performance in the course, it could be complemented by other measures. For instance, we could use additional badges to assess the student performance by their number of achievements.
 
 \section{Threats to validity}
+\label{sec:gamificationthreats}
 
 In this section, we document potential threats to the study validity and discuss some bias that may have affected the study results. We also explain our actions to mitigate them.
 
@@ -189,13 +204,21 @@ In this section, we document potential threats to the study validity and discuss
 \textbf{Number of Participants:} The data collected only capture the subjective opinion of each student. A larger number of participants should be interviewed to capture the general view of a broader audience. However, it was our first experience with gamification on software engineering education, and we had a good number of volunteers to participate in our study, without any concrete benefits (i.e., grades). About 50\% of all students of the course participated in the survey, but less than 20\% took part in the interviews. However, we do not attempt to generalize to a larger population, but merely to discuss some interesting issues discovered during this study (survey and interview). We then presented some discussions, suggestions, lessons learned, and insights for future research. Additionally, this study is an experience report. Therefore, we are concerned in reporting our observations in this scenario, rather than validating any hypothesis.
 
 \section{Final Remarks}
+\label{sec:gamificationfinal}
 
 In this chapter, we described an experience of introducing gamification elements (namely, badges and leaderboards) in a Software Engineering course. We are aware that the gamification technique has more to offer, but in this first experience, we relayed on the most basic and popular elements. Our experiment was focused on the student perception and the motivational aspect of the approach, rather than on their impact in grades.
 
 Our results showed a positive perception of the use of badges in the course. Students showed interest in badges and saw them as both (i) a social reward and (ii) secondary objectives to strive for in the course, besides grades and the approval. Regarding the use of leaderboards, our quantitative results showed a negative perception of the resource. However, interviews showed that students like to compare their performance against each other, and, when their performance is lower than the rest of the class, they feel motivated to try to perform better or to rethink their learning strategy. In addition, students liked the possibility of being recognized for their efforts.
 
-We believe that gamification has a motivational role in Software Engineering education that has to be further explored and evaluated. Although our results cannot be generalized, we provided evidences on the relevance of this technique in an educational environment. A major drawback is that gamification requires significant effort from instructors to setup and to maintain their elements during a course.
+We believe that gamification has a motivational role in Software Engineering education that requires  further exploration and evaluation. Although our results cannot be generalized, we provided evidences on the relevance of this technique in an educational environment. A major drawback is that gamification requires significant effort from instructors to setup and to maintain their elements during a course. Significant lessons learned from this study are:
 
-In the next iterations of the course, we plan to continue and expand the use of gamification elements. We will maintain the Hall of Fame and the updates on partial grades for students comparison, but we are also going to invest in more diversification of metrics to assess the performance of the students. Additionally, we plan to define more badges and try to relate them into specific behaviors that we expect from the students while implementing the practical assignments. We plan to disclosure the criteria to obtain some of the badges while keep others secret. Our plan is to evaluate the impact of gamification in motivating students to perform specific Software Engineering practices related to software process and software quality. 
+\begin{itemize}
+    \item Social recognition is relevant for students motivation. However, grades are still the most common reward they expect;
+    \item Badges were perceived as secondary goals for student to strive for in addition to approval in the course. Therefore, it is relevant to evaluate the role of badges as motivators for the adoption of specific SE skills, such as following a process. 
+    \item One student explicitly claimed that the Gamification should promote the practical aspect of SE education. However, as a first contact with gamification we opted for a more simplistic approach, that was positively received.
+    \item The Hall of Fame (leaderboard) was received with mixed opinions. While the students would not compare their grades with other students for the purpose of competition, they compare grades with the purpose of assessing their performance in the course in comparison with their colleagues.
+    \item Students would like the existence of more badges and that everyone could try to earn them, instead of having badges awarded for a single student. Again, it is an indication that students are more interested in personal progress than competing with colleagues.
+    
+\end{itemize}
 
-We also plan for future work to describe a framework to support educators in setting up a gamified experience tailored to the needs of software engineering education. Therefore, this study is relevant for collecting lessons learned about the relevance of specific game elements and the feedback of students about their learning experience. Further work could also investigate the impact of game elements in software engineering practices, such as the motivation drivers to write clear code [23].
+Additional details on the results of this study can be found in \cite{Souza:2017}.
